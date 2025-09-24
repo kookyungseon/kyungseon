@@ -1,240 +1,209 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Code, ExternalLink, Github, Star, Award, Zap, Eye } from 'lucide-react';
-import carImage from "./car.png";
-import tourImage from "./tour.png";
-import waterImage from "./water.png";
-import mafiaImage from "./mafia.png";
-import hospitalImage from "./hospital.png";
-import pillImage from "./pill.png";
+import React, { useState, useEffect, useRef } from "react";
+import { Github, ExternalLink, Award, Star, Zap, Code, Eye, ArrowRight, Sparkles } from "lucide-react";
 
 const ProjectCard = ({ project, index }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    const currentCardRef = cardRef.current;
-    if (currentCardRef) {
-      observer.observe(currentCardRef);
-    }
-
-    return () => {
-      if (currentCardRef) {
-        observer.unobserve(currentCardRef);
-      }
-    };
-  }, []);
-
-  const getGradient = (index) => {
-    const gradients = [
-      "from-cyan-500 to-cyan-600",
-      "from-slate-600 to-slate-700", 
-      "from-cyan-500 to-cyan-600",
-      "from-slate-600 to-slate-700",
-      "from-cyan-500 to-cyan-600",
-      "from-slate-600 to-slate-700"
-    ];
-    return gradients[index % gradients.length];
-  };
-
-  const getIcon = (index) => {
-    const icons = [Award, Star, Zap, Code, Github, Eye];
-    return icons[index % icons.length];
-  };
-
-  const IconComponent = getIcon(index);
 
   return (
     <div
-      ref={cardRef}
-      className={`transition-all duration-1000 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+      className={`group relative bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden ${
+        isHovered ? 'scale-105' : 'scale-100'
       }`}
-      style={{ transitionDelay: `${index * 150}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative group">
-        {/* 배경 그라데이션 */}
-        <div className="absolute inset-0 bg-gray-800 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-        
-        {/* 메인 카드 */}
-        <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group-hover:scale-[1.02] overflow-hidden">
-          {/* 이미지 영역 */}
-          <div className="relative h-64 overflow-hidden">
-            <img
-              src={project.image}
-              alt={`${project.title} 이미지`}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            {/* 오버레이 */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            
-            {/* 카테고리 배지 */}
-            <div className="absolute top-4 left-4">
-              <span className="bg-gradient-to-r from-slate-700 to-slate-600 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                {project.category}
-              </span>
-            </div>
+      {/* CSS 3D 배경 요소들 */}
+      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+        <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg transform rotate-12 animate-float"></div>
+        <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full transform -rotate-12 animate-float animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-lg transform rotate-45 animate-spin-slow"></div>
+      </div>
 
-            {/* 아이콘 */}
-            <div className="absolute top-4 right-4">
-              <div className="p-3 rounded-full bg-gray-800 border border-gray-700 shadow-lg">
-                <IconComponent className="text-white" size={20} />
+      {/* 메인 콘텐츠 */}
+      <div className="relative z-10 p-8">
+        {/* 헤더 */}
+        <div className="flex items-start justify-between mb-6">
+          <div className="flex items-center space-x-3">
+            <div className="p-3 bg-gray-100 rounded-xl">
+              <Code className="text-gray-600" size={24} />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
+              <div className="flex items-center space-x-2 mt-1">
+                <Star className="text-yellow-500" size={16} />
+                <span className="text-sm text-gray-500">Featured Project</span>
               </div>
-            </div>
-
-            {/* 호버 시 깃허브 링크 */}
-            <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-              >
-                <Github className="text-white" size={20} />
-              </a>
             </div>
           </div>
-
-          {/* 콘텐츠 영역 */}
-          <div className="p-6">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-              {project.title}
-            </h3>
-            
-            <p className="text-gray-300 text-sm leading-relaxed mb-6 line-clamp-3">
-              {project.description}
-            </p>
-
-            {/* 기술 스택 */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                <span
-                  key={techIndex}
-                  className="px-3 py-1 bg-gray-800/50 text-gray-300 text-xs rounded-full hover:bg-gray-700 hover:text-white transition-all duration-300 cursor-default"
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.technologies.length > 4 && (
-                <span className="px-3 py-1 bg-slate-700/50 text-gray-400 text-xs rounded-full">
-                  +{project.technologies.length - 4}
-                </span>
-              )}
-            </div>
-
-            {/* 액션 버튼 */}
-            <div className="flex items-center justify-between">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors group/link"
-              >
-                <Github size={16} />
-                <span className="text-sm font-medium group-hover/link:underline">코드 보기</span>
-                <ExternalLink size={14} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
-              </a>
-              
-              <div className="flex items-center space-x-1 text-yellow-400">
-                <Star size={14} fill="currentColor" />
-                <span className="text-xs text-gray-400">Featured</span>
-              </div>
-            </div>
+          
+          <div className="flex space-x-2">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              <Github size={20} className="text-gray-600" />
+            </a>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              <ExternalLink size={20} className="text-gray-600" />
+            </a>
           </div>
         </div>
+
+        {/* 설명 */}
+        <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+
+        {/* 기술 스택 */}
+        <div className="mb-6">
+          <h4 className="text-sm font-medium text-gray-900 mb-3">기술 스택</h4>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.slice(0, 4).map((tech, techIndex) => (
+              <span
+                key={techIndex}
+                className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors cursor-default"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 4 && (
+              <span className="px-3 py-1 bg-gray-100 text-gray-500 text-sm rounded-full">
+                +{project.technologies.length - 4}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* 하단 액션 */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4 text-sm text-gray-500">
+            <div className="flex items-center space-x-1">
+              <Zap className="text-blue-500" size={16} />
+              <span>AI/ML</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Code className="text-green-500" size={16} />
+              <span>Full Stack</span>
+            </div>
+          </div>
+          
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/link flex items-center space-x-2 text-gray-900 hover:text-blue-600 transition-colors"
+          >
+            <span className="font-medium">자세히 보기</span>
+            <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+          </a>
+        </div>
       </div>
+
+      {/* 호버 효과 */}
+      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
     </div>
   );
 };
 
 const Projects = () => {
+  const [visibleCards, setVisibleCards] = useState({});
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) => ({
+              ...prev,
+              [entry.target.dataset.index]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    cardRefs.current.forEach((cardRef) => {
+      if (cardRef) {
+        observer.observe(cardRef);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
     {
-      title: "AI 기반 차량 예약 확인 시스템 '타요타요'",
-      category: "멀티캠퍼스 융복합 프로젝트 - 최우수상",
-      description: "AWS 클라우드 환경에서 차량 이미지 업로드 → 번호판 인식 → 예약 정보 대조 → 문자 알림까지 자동화되는 파이프라인을 구축한 AI 기반 주차 관리 시스템",
-      technologies: ["AWS", "Route53", "RDS", "Lambda", "Auto Scaling", "Python", "AI"],
-      image: carImage,
-      link: "https://github.com/kookyungseon/cloudproject_TayoTayo"
+      title: "AI 기반 차량 예약 확인 시스템",
+      description: "AWS 클라우드 환경에서 AI 기반 차량 번호판 인식 및 예약 정보 대조, 문자 알림까지 자동화되는 파이프라인 구축",
+      technologies: ["AWS", "Lambda", "RDS", "Route53", "AI/ML", "Python"],
+      link: "https://github.com/kookyungseon/AI_Vehicle_System"
     },
     {
-      title: "AI OCR 기반 알약 식별 및 처방전 자동 인식 시스템",
-      category: "2024 ICT 충청권 이노베이션 공모전 - SW 개발 부문 최우수상",
-      description: "OCR 기반 처방전 인식 기능과 CNN 모델을 통한 알약 식별 기능을 구현하여 사용자 입력 최소화를 통한 의료 정보 처리 자동화를 달성",
-      technologies: ["Django", "Flutter", "OCR", "CNN", "AI", "Python"],
-      image: pillImage,
-      link: "https://github.com/Algorithmstudy01/ict_ver2"
+      title: "AI-OCR 알약 식별 및 처방전 자동 인식 시스템",
+      description: "AI OCR 기술을 활용하여 알약 식별 및 처방전 자동 인식 시스템 개발. SW 개발 부문 최우수상 수상.",
+      technologies: ["AI/ML", "OCR", "Python", "PyTorch", "CNN", "FastAPI"],
+      link: "https://github.com/kookyungseon/AI-OCR_Pill_System"
     },
     {
-      title: "LLM 기반 답변 최적화 플랫폼",
-      category: "졸업작품 프로젝트",
-      description: "Claude, Gemini, OpenAI API 등 다양한 모델을 동시에 호출하여 답변을 비교 분석하고, LangChain 기반 파이프라인으로 텍스트, 이미지, PDF, 영상 데이터를 통합 분석하는 채팅 시스템",
-      technologies: ["Python", "LangChain", "OpenAI API", "Claude", "Gemini", "FastAPI"],
-      image: hospitalImage,
-      link: "https://github.com/kookyungseon"
-    },
-    {
-      title: "PyTorch 오픈소스 문서 번역 및 품질 개선",
-      category: "2024 충북 오픈소스 컨트리뷰션 - 1위 최우수상",
-      description: "글로벌 개발자 커뮤니티와 협업하며 딥러닝 프레임워크 문서 번역·리뷰 수행 및 GitHub Pull Request를 통한 코드 및 문서 기여",
-      technologies: ["PyTorch", "GitHub", "Slack", "Documentation", "Deep Learning"],
-      image: tourImage,
-      link: "https://github.com/pytorch/pytorch"
+      title: "개인 맞춤형 주차 관리 공유 시스템",
+      description: "클라우드 기반의 주차 공간 관리 시스템. AWS EC2, S3, RDS, Route53 활용하여 안정성과 확장성 확보.",
+      technologies: ["AWS", "EC2", "S3", "RDS", "Route53", "Docker", "Spring Boot"],
+      link: "https://github.com/kookyungseon/Smart_Parking_System"
     },
     {
       title: "위기 상황 자동 녹음 앱 '안전한 목소리'",
-      category: "고용노동부 미래내일 일경험 지원사업",
-      description: "Flutter 기반 반응형 프론트엔드 개발 및 REST API 연동을 통한 사용자 편의성과 상황 대응성을 고려한 UX 개선",
+      description: "Flutter 기반의 위기 상황 자동 녹음 앱. UI 반응형 프론트엔드 개발 및 REST API 연동.",
       technologies: ["Flutter", "Dart", "REST API", "UI/UX Design"],
-      image: waterImage,
-      link: "https://github.com/kookyungseon"
+      link: "https://github.com/kookyungseon/Safe_Voice_App"
     },
     {
-      title: "TCP/IP 소켓 프로그래밍을 활용한 '마피아 게임'",
-      category: "서버프로그래밍 프로젝트",
-      description: "TCP/IP 소켓 프로그래밍과 멀티스레드를 활용한 실시간 마피아 게임 서버 구현. 효율적인 스레드 관리를 위한 독자적 로직 설계로 안정적인 게임 플레이 제공",
-      technologies: ["C", "Socket Programming", "Multi-Threading", "TCP/IP"],
-      image: mafiaImage,
-      link: "https://github.com/kookyungseon/server_program"
+      title: "PyTorch 오픈소스 문서 번역 및 품질 개선",
+      description: "글로벌 개발자 커뮤니티와 협업하여 PyTorch 오픈소스 문서 번역 및 품질 개선 프로젝트 참여. 최우수상 수상.",
+      technologies: ["PyTorch", "Open Source", "Translation", "GitHub", "Community"],
+      link: "https://github.com/kookyungseon/PyTorch_Translation"
+    },
+    {
+      title: "LLM 기반 답변 최적화 플랫폼",
+      description: "Claude, Gemini, OpenAI API 등 다양한 LLM 모델을 활용한 답변 최적화 플랫폼 개발. 백엔드 담당.",
+      technologies: ["LLM", "Claude API", "Gemini API", "OpenAI API", "LangChain", "Python"],
+      link: "https://github.com/kookyungseon/LLM_Optimization"
     }
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 bg-black relative overflow-hidden">
-      {/* 배경 효과 */}
+    <section id="projects" className="py-24 px-6 bg-gray-50 relative overflow-hidden">
+      {/* 미니멀 배경 효과 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-gray-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gray-200 rounded-full opacity-20"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gray-200 rounded-full opacity-15"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="text-gray-300">
+          <div className="flex items-center justify-center mb-6">
+            <Sparkles className="text-gray-400 mr-3" size={32} />
+            <h2 className="text-5xl md:text-6xl font-light text-gray-900">
               프로젝트
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            </h2>
+            <Sparkles className="text-gray-400 ml-3" size={32} />
+          </div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트 경험
           </p>
-          <div className="flex justify-center mt-8 space-x-4">
-            <div className="flex items-center space-x-2 text-gray-400">
+          <div className="flex justify-center space-x-8">
+            <div className="flex items-center space-x-2 text-gray-500">
               <Star size={20} />
               <span className="text-sm">Featured Projects</span>
             </div>
             <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-            <div className="flex items-center space-x-2 text-gray-400">
+            <div className="flex items-center space-x-2 text-gray-500">
               <Award size={20} />
               <span className="text-sm">Award Winning</span>
             </div>
@@ -243,20 +212,30 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <div
+              key={index}
+              ref={(el) => (cardRefs.current[index] = el)}
+              data-index={index}
+              className={`transform transition-all duration-700 ease-out ${
+                visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <ProjectCard project={project} index={index} />
+            </div>
           ))}
         </div>
 
         <div className="text-center">
           <a 
             href="https://github.com/kookyungseon"
-            className="group inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+            className="group inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github size={24} className="text-black" />
-            <span className="text-lg font-semibold">더 많은 프로젝트 보기</span>
-            <ExternalLink size={20} className="group-hover:translate-x-1 transition-transform text-black" />
+            <Github size={24} />
+            <span className="text-lg font-medium">더 많은 프로젝트 보기</span>
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </div>

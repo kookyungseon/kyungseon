@@ -22,16 +22,22 @@ const Hero = () => {
   }, [showContent]);
 
   return (
-    <header className="relative w-full h-screen bg-white flex items-center justify-center overflow-hidden">
-      {/* 미니멀 배경 패턴 */}
+    <header className="relative w-full h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center overflow-hidden">
+      {/* CSS 3D 배경 요소들 */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-50 to-white"></div>
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gray-100 rounded-full opacity-30"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-gray-100 rounded-full opacity-20"></div>
+        {/* 떠다니는 3D 도형들 */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full opacity-60 animate-float transform rotate-12"></div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg opacity-50 animate-float animation-delay-2000 transform -rotate-12"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-20 h-20 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-full opacity-40 animate-float animation-delay-4000 transform rotate-45"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-28 h-28 bg-gradient-to-br from-green-100 to-green-200 rounded-lg opacity-30 animate-float animation-delay-6000 transform -rotate-45"></div>
+        
+        {/* 3D 회전하는 도형들 */}
+        <div className="absolute top-1/2 left-1/6 w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full opacity-50 animate-spin-slow transform"></div>
+        <div className="absolute top-2/3 right-1/6 w-12 h-12 bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg opacity-40 animate-spin-slow animation-delay-3000 transform"></div>
       </div>
 
       {/* 미니멀 그리드 패턴 */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23f3f4f6%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23f3f4f6%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
 
       {/* 이름 등장 애니메이션 */}
       {!showContent && (
