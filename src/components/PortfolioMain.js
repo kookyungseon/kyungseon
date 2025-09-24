@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Education from './Education';
 import Certifications from './Certifications';
 import Projects from './Projects';
@@ -20,10 +19,9 @@ const PortfolioMain = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
       <Hero />
+      <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
       <main className="relative">
-        {/* 컨텐츠 */}
         <div className="relative">
           <Education />
           <Certifications />
@@ -31,7 +29,6 @@ const PortfolioMain = () => {
           <Experience />
         </div>
       </main>
-      
       <footer className="bg-gray-50 py-8 text-center text-gray-600">
         <div className="container mx-auto px-4">
           <p className="text-sm">© 2024 구경선. All rights reserved.</p>
