@@ -40,6 +40,8 @@ function Player({ position, onEnterZone }) {
         case 'ArrowRight':
           keys.current.rightward = true;
           break;
+        default:
+          break;
       }
     };
 
@@ -60,6 +62,8 @@ function Player({ position, onEnterZone }) {
         case 'KeyD':
         case 'ArrowRight':
           keys.current.rightward = false;
+          break;
+        default:
           break;
       }
     };
@@ -112,6 +116,12 @@ function Player({ position, onEnterZone }) {
         onEnterZone('smartwindow');
       } else if (x > -2 && x < 2 && z > -2 && z < 2) {
         onEnterZone('about');
+      } else if (x > -8 && x < -4 && z > -8 && z < -4) {
+        onEnterZone('education');
+      } else if (x > 4 && x < 8 && z > -8 && z < -4) {
+        onEnterZone('certifications');
+      } else if (x > -8 && x < -4 && z > 4 && z < 8) {
+        onEnterZone('experience');
       } else {
         onEnterZone(null);
       }
@@ -179,22 +189,24 @@ function InfoPanel({ project, visible }) {
         <h3 className="text-2xl font-bold mb-4 text-blue-400">{project.title}</h3>
         <p className="text-gray-300 mb-4">{project.description}</p>
         <div className="space-y-2 mb-4">
-          <p><span className="text-blue-400 font-semibold">기간:</span> {project.period}</p>
-          <p><span className="text-blue-400 font-semibold">역할:</span> {project.role}</p>
-          <p><span className="text-blue-400 font-semibold">기술:</span> {project.tech}</p>
+          {project.period && <p><span className="text-blue-400 font-semibold">기간:</span> {project.period}</p>}
+          {project.role && <p><span className="text-blue-400 font-semibold">역할:</span> {project.role}</p>}
+          {project.tech && <p><span className="text-blue-400 font-semibold">기술:</span> {project.tech}</p>}
           {project.award && (
             <p><span className="text-yellow-400 font-semibold">수상:</span> {project.award}</p>
           )}
         </div>
         <div className="flex space-x-2">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition-colors"
-          >
-            GitHub
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition-colors"
+            >
+              GitHub
+            </a>
+          )}
           {project.demo && (
             <a
               href={project.demo}
@@ -216,7 +228,7 @@ function GameScene({ onEnterZone, currentProject }) {
   const projects = [
     {
       id: 'parking',
-      title: '🅿️ Designated Parking Management System',
+      title: '🅿️ 주차 관리 시스템',
       position: [10, 0, 0],
       color: '#10B981',
       description: '개인 주차 공간 공유를 통한 주차 공간 부족 문제 해결을 위한 반응형 웹 애플리케이션',
@@ -227,7 +239,7 @@ function GameScene({ onEnterZone, currentProject }) {
     },
     {
       id: 'travel',
-      title: '🗺️ Travel Destination Recommendation System',
+      title: '🗺️ 여행지 추천 시스템',
       position: [0, 0, 10],
       color: '#3B82F6',
       description: '지역별 여행지 및 맛집 추천 웹 애플리케이션',
@@ -238,7 +250,7 @@ function GameScene({ onEnterZone, currentProject }) {
     },
     {
       id: 'water',
-      title: '🌊 Environmental Awareness Improvement',
+      title: '🌊 환경 인식 개선',
       position: [-10, 0, 0],
       color: '#06B6D4',
       description: '친환경 세제 인증, 물 관련 퀴즈, 오염된 우수관 신고 기능 제공',
@@ -249,7 +261,7 @@ function GameScene({ onEnterZone, currentProject }) {
     },
     {
       id: 'telemedicine',
-      title: '🏥 Telemedicine and Emergency Room Matching',
+      title: '🏥 원격의료 매칭',
       position: [0, 0, -10],
       color: '#8B5CF6',
       description: '응급실 문제 해결을 위한 AI 챗봇 기반 원격의료 및 응급실 추천 앱',
@@ -260,7 +272,7 @@ function GameScene({ onEnterZone, currentProject }) {
     },
     {
       id: 'pill',
-      title: '💊 Pill Recognition and Management App',
+      title: '💊 알약 인식 앱',
       position: [10, 0, 10],
       color: '#F59E0B',
       description: '사진 업로드 및 이미지 인식을 통한 알약 정보 및 복약 관리 앱',
@@ -272,7 +284,7 @@ function GameScene({ onEnterZone, currentProject }) {
     },
     {
       id: 'smartwindow',
-      title: '🪟 Smart Window Project',
+      title: '🪟 스마트 윈도우',
       position: [-10, 0, 10],
       color: '#EF4444',
       description: 'IoT 센서를 활용한 공기질, 온도, 습도 기반 자동 창문 개폐 시스템',
@@ -283,14 +295,44 @@ function GameScene({ onEnterZone, currentProject }) {
     },
     {
       id: 'about',
-      title: '👋 About Me',
+      title: '👋 자기소개',
       position: [0, 0, 0],
       color: '#58A6FF',
-      description: '안녕하세요! 구경선입니다. 방향키로 이동해서 프로젝트들을 탐험해보세요!',
+      description: '안녕하세요! 구경선입니다. 방향키로 이동해서 다양한 정보를 탐험해보세요!',
       period: '2020 ~ 현재',
       role: 'Full-Stack Developer',
       tech: 'React, Three.js, Node.js, Python, AI/ML',
       github: 'https://github.com/kookyungseon'
+    },
+    {
+      id: 'education',
+      title: '🎓 학력사항',
+      position: [-6, 0, -6],
+      color: '#10B981',
+      description: '충북대학교 지구환경과학과 & 소프트웨어학과 복수전공',
+      period: '2020 ~ 현재',
+      role: '학부생',
+      tech: '지구과학, 소프트웨어, 클라우드'
+    },
+    {
+      id: 'certifications',
+      title: '🏅 자격증',
+      position: [6, 0, -6],
+      color: '#F59E0B',
+      description: 'DAsP, ADsP, 빅데이터분석기사, SQLD, 토익스피킹 등 다양한 자격증 보유',
+      period: '2024 ~ 2025',
+      role: '자격증 취득',
+      tech: '데이터 분석, SQL, 영어'
+    },
+    {
+      id: 'experience',
+      title: '💼 경력',
+      position: [-6, 0, 6],
+      color: '#8B5CF6',
+      description: '픽셀아이 인턴십, 멀티캠퍼스 클라우드 과정, 정부 지원사업 참여',
+      period: '2022 ~ 2024',
+      role: '인턴, 교육생, 프로젝트 참여자',
+      tech: '클라우드, AI, 웹개발'
     }
   ];
 
@@ -329,7 +371,7 @@ const GamePortfolio = () => {
   const handleEnterZone = (projectId) => {
     if (projectId === 'parking') {
       setCurrentProject({
-        title: '🅿️ Designated Parking Management System',
+        title: '🅿️ 주차 관리 시스템',
         description: '개인 주차 공간 공유를 통한 주차 공간 부족 문제 해결을 위한 반응형 웹 애플리케이션',
         period: 'Aug 2022 – Feb 2023 (6개월)',
         role: 'Cloud / Front-end (HTML, CSS)',
@@ -338,7 +380,7 @@ const GamePortfolio = () => {
       });
     } else if (projectId === 'travel') {
       setCurrentProject({
-        title: '🗺️ Travel Destination Recommendation System',
+        title: '🗺️ 여행지 추천 시스템',
         description: '지역별 여행지 및 맛집 추천 웹 애플리케이션',
         period: '3학년 2학기',
         role: 'Front-end (React)',
@@ -347,7 +389,7 @@ const GamePortfolio = () => {
       });
     } else if (projectId === 'water') {
       setCurrentProject({
-        title: '🌊 Environmental Awareness Improvement',
+        title: '🌊 환경 인식 개선',
         description: '친환경 세제 인증, 물 관련 퀴즈, 오염된 우수관 신고 기능 제공',
         period: '4학년 1학기',
         role: 'Django + DB Management / API 활용 / Front-end (Flutter)',
@@ -356,7 +398,7 @@ const GamePortfolio = () => {
       });
     } else if (projectId === 'telemedicine') {
       setCurrentProject({
-        title: '🏥 Telemedicine and Emergency Room Matching',
+        title: '🏥 원격의료 매칭',
         description: '응급실 문제 해결을 위한 AI 챗봇 기반 원격의료 및 응급실 추천 앱',
         period: '4학년 1학기',
         role: 'Front-end (XML)',
@@ -365,7 +407,7 @@ const GamePortfolio = () => {
       });
     } else if (projectId === 'pill') {
       setCurrentProject({
-        title: '💊 Pill Recognition and Management App',
+        title: '💊 알약 인식 앱',
         description: '사진 업로드 및 이미지 인식을 통한 알약 정보 및 복약 관리 앱',
         period: 'Aug 2024 – Oct 2024 (3개월)',
         role: 'Django + DB Management / 알약 인식 모델 개발',
@@ -375,7 +417,7 @@ const GamePortfolio = () => {
       });
     } else if (projectId === 'smartwindow') {
       setCurrentProject({
-        title: '🪟 Smart Window Project',
+        title: '🪟 스마트 윈도우',
         description: 'IoT 센서를 활용한 공기질, 온도, 습도 기반 자동 창문 개폐 시스템',
         period: '4학년 3학기',
         role: 'Backend API 개발 / 공공데이터 포털 API 연결 / Raspberry Pi 통신',
@@ -384,12 +426,36 @@ const GamePortfolio = () => {
       });
     } else if (projectId === 'about') {
       setCurrentProject({
-        title: '👋 About Me',
-        description: '안녕하세요! 구경선입니다. 방향키로 이동해서 프로젝트들을 탐험해보세요!',
+        title: '👋 자기소개',
+        description: '안녕하세요! 구경선입니다. 방향키로 이동해서 다양한 정보를 탐험해보세요!',
         period: '2020 ~ 현재',
         role: 'Full-Stack Developer',
         tech: 'React, Three.js, Node.js, Python, AI/ML',
         github: 'https://github.com/kookyungseon'
+      });
+    } else if (projectId === 'education') {
+      setCurrentProject({
+        title: '🎓 학력사항',
+        description: '충북대학교 지구환경과학과 & 소프트웨어학과 복수전공',
+        period: '2020 ~ 현재',
+        role: '학부생',
+        tech: '지구과학, 소프트웨어, 클라우드'
+      });
+    } else if (projectId === 'certifications') {
+      setCurrentProject({
+        title: '🏅 자격증',
+        description: 'DAsP, ADsP, 빅데이터분석기사, SQLD, 토익스피킹 등 다양한 자격증 보유',
+        period: '2024 ~ 2025',
+        role: '자격증 취득',
+        tech: '데이터 분석, SQL, 영어'
+      });
+    } else if (projectId === 'experience') {
+      setCurrentProject({
+        title: '💼 경력',
+        description: '픽셀아이 인턴십, 멀티캠퍼스 클라우드 과정, 정부 지원사업 참여',
+        period: '2022 ~ 2024',
+        role: '인턴, 교육생, 프로젝트 참여자',
+        tech: '클라우드, AI, 웹개발'
       });
     } else {
       setCurrentProject(null);
@@ -401,8 +467,8 @@ const GamePortfolio = () => {
       {/* 컨트롤 안내 */}
       <div className="absolute top-4 left-4 z-10 bg-gray-900/80 backdrop-blur-sm rounded-lg p-4 text-white">
         <h3 className="text-lg font-bold mb-2">🎮 컨트롤</h3>
-        <p className="text-sm text-gray-300">방향키로 이동하세요!</p>
-        <p className="text-sm text-gray-300">프로젝트 영역에 가까이 가면 정보가 나타납니다.</p>
+        <p className="text-sm text-gray-300">WASD 또는 방향키로 이동하세요!</p>
+        <p className="text-sm text-gray-300">영역에 가까이 가면 정보가 나타납니다.</p>
       </div>
 
       {/* 3D 씬 */}

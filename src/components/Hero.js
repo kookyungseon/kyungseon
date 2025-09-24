@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Github, Mail, ArrowDown, Code, Cloud, Database, Award, Star, Play } from "lucide-react";
+import { Github, Mail, ArrowDown, Code, Cloud, Database, Award, Star, Play, MousePointer } from "lucide-react";
 
 const Hero = () => {
   const [showContent, setShowContent] = useState(false);
   const [currentWord, setCurrentWord] = useState(0);
   const [showGame, setShowGame] = useState(false);
+  const [showClickHint, setShowClickHint] = useState(false);
 
   const words = ["Full-Stack Developer", "Data Science Enthusiast", "Cloud Engineer", "AI Developer"];
 
@@ -22,6 +23,13 @@ const Hero = () => {
     }
   }, [showContent]);
 
+  useEffect(() => {
+    if (showContent) {
+      const timeout = setTimeout(() => setShowClickHint(true), 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [showContent]);
+
   if (showGame) {
     const GamePortfolio = React.lazy(() => import('./GamePortfolio'));
     return (
@@ -36,7 +44,10 @@ const Hero = () => {
   }
 
   return (
-    <header className="relative w-full h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center overflow-hidden">
+    <header 
+      className="relative w-full h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center overflow-hidden cursor-pointer"
+      onClick={() => setShowGame(true)}
+    >
       {/* GitHub 스타일 배경 패턴 */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
@@ -104,40 +115,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* 3D 포트폴리오 버튼 */}
-          <div className="mb-12">
-            <button
-              onClick={() => setShowGame(true)}
-              className="group flex items-center justify-center mx-auto px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shadow-lg hover:shadow-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105"
-            >
-              <Play size={20} className="mr-3" />
-              🎮 3D 게임형 포트폴리오 탐험하기
-            </button>
-            <p className="text-gray-400 text-sm mt-2">방향키로 이동하며 프로젝트들을 탐험해보세요!</p>
-          </div>
-
-          {/* 소셜 링크 */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-            <a
-              href="mailto:koo0685@naver.com"
-              className="group flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-red-500 to-red-600 rounded-lg shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105"
-            >
-              <Mail size={20} className="mr-3" />
-              Email Me
-            </a>
-            <a
-              href="https://github.com/kookyungseon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-lg hover:shadow-xl hover:from-gray-800 hover:to-gray-900 transition-all duration-300 transform hover:scale-105"
-            >
-              <Github size={20} className="mr-3" />
-              GitHub
-            </a>
-          </div>
-
           {/* 현재 포커스 */}
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 mb-12">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center justify-center">
               <Star className="text-yellow-400 mr-2" size={24} />
               Current Focus
@@ -154,12 +133,34 @@ const Hero = () => {
               </span>
             </div>
           </div>
+
+          {/* 클릭 힌트 */}
+          {showClickHint && (
+            <div className="flex items-center justify-center space-x-4 text-white animate-bounce">
+              <MousePointer size={24} />
+              <span className="text-xl font-medium">아무 곳이나 클릭해서 3D 포트폴리오 탐험하기</span>
+              <MousePointer size={24} />
+            </div>
+          )}
         </div>
       )}
 
-      {/* 스크롤 인디케이터 */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="text-white" size={24} />
+      {/* 소셜 링크 - 우측 하단 */}
+      <div className="absolute bottom-8 right-8 flex space-x-4">
+        <a
+          href="mailto:koo0685@naver.com"
+          className="group flex items-center justify-center p-3 text-white bg-red-600/80 hover:bg-red-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+        >
+          <Mail size={20} />
+        </a>
+        <a
+          href="https://github.com/kookyungseon"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center justify-center p-3 text-white bg-gray-700/80 hover:bg-gray-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+        >
+          <Github size={20} />
+        </a>
       </div>
     </header>
   );
