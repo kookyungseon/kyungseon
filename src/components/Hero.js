@@ -38,11 +38,8 @@ const Hero = () => {
         {/* 프로필 이미지 영역 */}
         <div className="mb-16 flex justify-center animate-fade-in" style={{ animationDelay: "0.5s" }}>
           <div className="relative">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center border-4 border-white shadow-xl">
-              <Code className="text-blue-600" size={48} />
-            </div>
-            <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce">
-              <Star className="text-white" size={16} />
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gray-100 flex items-center justify-center border-4 border-white shadow-xl">
+              <Code className="text-gray-600" size={48} />
             </div>
           </div>
         </div>
@@ -50,24 +47,24 @@ const Hero = () => {
         <div className="space-y-8">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-wide animate-slide-up text-gray-900">
             안녕하세요, <br />
-            <span className="font-medium text-blue-600">
+            <span className="font-medium text-gray-800">
               구경선
             </span>입니다
           </h1>
 
           <div className="flex justify-center items-center space-x-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <div className="flex items-center space-x-2 text-gray-600">
-              <Cloud className="text-blue-500" size={20} />
+              <Cloud className="text-gray-500" size={20} />
               <span className="text-sm md:text-lg">Cloud</span>
             </div>
             <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
             <div className="flex items-center space-x-2 text-gray-600">
-              <Database className="text-green-500" size={20} />
+              <Database className="text-gray-500" size={20} />
               <span className="text-sm md:text-lg">Data</span>
             </div>
             <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
             <div className="flex items-center space-x-2 text-gray-600">
-              <Code className="text-purple-500" size={20} />
+              <Code className="text-gray-500" size={20} />
               <span className="text-sm md:text-lg">AI</span>
             </div>
           </div>
@@ -76,7 +73,7 @@ const Hero = () => {
             충북대학교 지구환경과학 & 소프트웨어 복수전공
             <br />
             <span className="text-gray-800 font-medium">
-              <span className="text-blue-600 font-semibold">
+              <span className="text-gray-900 font-semibold">
                 {words[currentWord]}
               </span>
             </span>
@@ -85,7 +82,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.9s" }}>
             <a
               href="mailto:koo0685@naver.com"
-              className="group flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 hover:scale-105"
+              className="group flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300"
             >
               <Mail size={20} className="mr-3" />
               이메일 보내기
@@ -94,7 +91,7 @@ const Hero = () => {
               href="https://github.com/kookyungseon"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 border-2 border-transparent rounded-lg shadow-sm hover:shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
+              className="group flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-800 transition-all duration-300"
             >
               <Github size={20} className="mr-3" />
               깃허브
