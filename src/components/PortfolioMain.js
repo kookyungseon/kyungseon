@@ -19,8 +19,8 @@ const PortfolioMain = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      <Hero />
       <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
+      <Hero />
       <main className="relative">
         <div className="relative">
           <Education />
