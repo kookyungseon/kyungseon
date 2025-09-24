@@ -1,6 +1,127 @@
-import React, { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useState, useRef, useEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Html } from '@react-three/drei';
+import * as THREE from 'three';
+
+// 플레이어 컴포넌트
+function Player({ position, onEnterZone }) {
+  const meshRef = useRef();
+  const keys = useRef({
+    forward: false,
+    backward: false,
+    leftward: false,
+    rightward: false
+  });
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.code) {
+        case 'KeyW':
+        case 'ArrowUp':
+          keys.current.forward = true;
+          break;
+        case 'KeyS':
+        case 'ArrowDown':
+          keys.current.backward = true;
+          break;
+        case 'KeyA':
+        case 'ArrowLeft':
+          keys.current.leftward = true;
+          break;
+        case 'KeyD':
+        case 'ArrowRight':
+          keys.current.rightward = true;
+          break;
+        default:
+          break;
+      }
+    };
+
+    const handleKeyUp = (event) => {
+      switch (event.code) {
+        case 'KeyW':
+        case 'ArrowUp':
+          keys.current.forward = false;
+          break;
+        case 'KeyS':
+        case 'ArrowDown':
+          keys.current.backward = false;
+          break;
+        case 'KeyA':
+        case 'ArrowLeft':
+          keys.current.leftward = false;
+          break;
+        case 'KeyD':
+        case 'ArrowRight':
+          keys.current.rightward = false;
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
+  useFrame((state, delta) => {
+    if (!meshRef.current) return;
+
+    const { forward, backward, leftward, rightward } = keys.current;
+    const speed = 8 * delta; // 프레임 독립적 속도
+    
+    if (forward) meshRef.current.position.z -= speed;
+    if (backward) meshRef.current.position.z += speed;
+    if (leftward) meshRef.current.position.x -= speed;
+    if (rightward) meshRef.current.position.x += speed;
+
+    // 영역 감지
+    const x = meshRef.current.position.x;
+    const z = meshRef.current.position.z;
+    
+    // 프로젝트 영역들
+    if (x > 4 && x < 6 && z > -1 && z < 1) {
+      onEnterZone('parking');
+    } else if (x > -1 && x < 1 && z > 4 && z < 6) {
+      onEnterZone('travel');
+    } else if (x > -6 && x < -4 && z > -1 && z < 1) {
+      onEnterZone('water');
+    } else if (x > -1 && x < 1 && z > -6 && z < -4) {
+      onEnterZone('telemedicine');
+    } else if (x > 4 && x < 6 && z > 4 && z < 6) {
+      onEnterZone('pill');
+    } else if (x > -6 && x < -4 && z > 4 && z < 6) {
+      onEnterZone('smartwindow');
+    } else if (x > -1 && x < 1 && z > -1 && z < 1) {
+      onEnterZone('about');
+    } else if (x > -4 && x < -2 && z > -4 && z < -2) {
+      onEnterZone('education');
+    } else if (x > 2 && x < 4 && z > -4 && z < -2) {
+      onEnterZone('certifications');
+    } else if (x > -4 && x < -2 && z > 2 && z < 4) {
+      onEnterZone('experience');
+    } else {
+      onEnterZone(null);
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={position}>
+      <cylinderGeometry args={[0.3, 0.3, 1.5, 8]} />
+      <meshStandardMaterial color="#FF6B6B" />
+      {/* 플레이어 머리 */}
+      <mesh position={[0, 1, 0]}>
+        <sphereGeometry args={[0.25, 8, 6]} />
+        <meshStandardMaterial color="#FFB6C1" />
+      </mesh>
+    </mesh>
+  );
+}
 
 // 나무 컴포넌트
 function Tree({ position }) {
@@ -120,19 +241,16 @@ function Cloud({ position }) {
   );
 }
 
-// 간단한 박스 컴포넌트 (프로젝트 영역)
-function ProjectBox({ position, color, onEnterZone, projectId }) {
+// 프로젝트 영역 컴포넌트
+function ProjectZone({ position, projectId, color }) {
   return (
-    <group>
-      <mesh 
-        position={position}
-        onClick={() => onEnterZone(projectId)}
-      >
+    <group position={position}>
+      <mesh>
         <boxGeometry args={[2, 0.5, 2]} />
-        <meshStandardMaterial color={color} transparent opacity={0.7} />
+        <meshStandardMaterial color={color} transparent opacity={0.6} />
       </mesh>
       <Text
-        position={[position[0], position[1] + 1, position[2]]}
+        position={[0, 1, 0]}
         fontSize={0.3}
         color="white"
         anchorX="center"
@@ -149,7 +267,7 @@ function InfoPanel({ project, visible }) {
   if (!visible || !project) return null;
 
   return (
-    <Html position={[0, 3, 0]} center>
+    <Html position={[0, 5, 0]} center>
       <div className="bg-black/90 backdrop-blur-sm border border-gray-800 rounded-lg p-4 max-w-md text-white shadow-xl max-h-80 overflow-y-auto">
         <h3 className="text-lg font-medium mb-2 text-white">{project.title}</h3>
         <p className="text-gray-300 mb-3 text-sm">{project.description}</p>
@@ -268,7 +386,7 @@ const GamePortfolio = () => {
     } else if (projectId === 'about') {
       setCurrentProject({
         title: '자기소개',
-        description: '안녕하세요! 구경선입니다. 박스를 클릭해서 다양한 정보를 탐험해보세요!',
+        description: '안녕하세요! 구경선입니다. WASD 키로 이동해서 다양한 정보를 탐험해보세요!',
         details: [
           { label: '기간', value: '2020 ~ 현재' },
           { label: '역할', value: 'Full-Stack Developer' }
@@ -322,14 +440,15 @@ const GamePortfolio = () => {
       {/* 컨트롤 안내 */}
       <div className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-sm rounded-lg p-4 text-white">
         <h3 className="text-sm font-medium mb-1">🎮 3D 포트폴리오 월드</h3>
-        <p className="text-xs text-gray-400">박스를 클릭해서 정보 보기</p>
+        <p className="text-xs text-gray-400">WASD 키로 이동해서 정보 탐험하기</p>
+        <p className="text-xs text-gray-400">영역에 가까이 가면 자동으로 정보 표시</p>
       </div>
 
       {/* 3D 씬 */}
       <Canvas
         camera={{ position: [0, 8, 15], fov: 75 }}
       >
-        {/* 하늘과 구름 */}
+        {/* 하늘과 조명 */}
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <pointLight position={[-10, 10, -10]} color="#FFD700" intensity={0.5} />
@@ -373,26 +492,29 @@ const GamePortfolio = () => {
         <Building position={[-18, 0, 12]} height={5} color="#696969" />
         <Building position={[18, 0, 12]} height={3.5} color="#8B4513" />
         
-        {/* 프로젝트 박스들 */}
-        <ProjectBox position={[5, 0, 0]} color="#ff6b6b" onEnterZone={handleEnterZone} projectId="주차관리" />
-        <ProjectBox position={[0, 0, 5]} color="#4ecdc4" onEnterZone={handleEnterZone} projectId="여행추천" />
-        <ProjectBox position={[-5, 0, 0]} color="#45b7d1" onEnterZone={handleEnterZone} projectId="환경개선" />
-        <ProjectBox position={[0, 0, -5]} color="#96ceb4" onEnterZone={handleEnterZone} projectId="원격의료" />
-        <ProjectBox position={[5, 0, 5]} color="#feca57" onEnterZone={handleEnterZone} projectId="알약인식" />
-        <ProjectBox position={[-5, 0, 5]} color="#ff9ff3" onEnterZone={handleEnterZone} projectId="스마트윈도우" />
+        {/* 프로젝트 영역들 */}
+        <ProjectZone position={[5, 0, 0]} projectId="주차관리" color="#ff6b6b" />
+        <ProjectZone position={[0, 0, 5]} projectId="여행추천" color="#4ecdc4" />
+        <ProjectZone position={[-5, 0, 0]} projectId="환경개선" color="#45b7d1" />
+        <ProjectZone position={[0, 0, -5]} projectId="원격의료" color="#96ceb4" />
+        <ProjectZone position={[5, 0, 5]} projectId="알약인식" color="#feca57" />
+        <ProjectZone position={[-5, 0, 5]} projectId="스마트윈도우" color="#ff9ff3" />
         
         {/* 자기소개 */}
-        <ProjectBox position={[0, 0, 0]} color="#ffffff" onEnterZone={handleEnterZone} projectId="자기소개" />
+        <ProjectZone position={[0, 0, 0]} projectId="자기소개" color="#ffffff" />
         
         {/* 학력, 자격증, 경력 */}
-        <ProjectBox position={[-3, 0, -3]} color="#a8e6cf" onEnterZone={handleEnterZone} projectId="학력" />
-        <ProjectBox position={[3, 0, -3]} color="#ffd3a5" onEnterZone={handleEnterZone} projectId="자격증" />
-        <ProjectBox position={[-3, 0, 3]} color="#fd79a8" onEnterZone={handleEnterZone} projectId="경력" />
+        <ProjectZone position={[-3, 0, -3]} projectId="학력" color="#a8e6cf" />
+        <ProjectZone position={[3, 0, -3]} projectId="자격증" color="#ffd3a5" />
+        <ProjectZone position={[-3, 0, 3]} projectId="경력" color="#fd79a8" />
+        
+        {/* 플레이어 */}
+        <Player position={[0, 1, 0]} onEnterZone={handleEnterZone} />
         
         {/* 정보 패널 */}
         <InfoPanel project={currentProject} visible={!!currentProject} />
         
-        <OrbitControls enablePan={true} enableZoom={true} maxPolarAngle={Math.PI / 2} />
+        <OrbitControls enablePan={false} enableZoom={true} maxPolarAngle={Math.PI / 2} />
       </Canvas>
     </div>
   );
