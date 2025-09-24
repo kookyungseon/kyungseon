@@ -6,7 +6,7 @@ const Hero = () => {
   const [currentWord, setCurrentWord] = useState(0);
 
   const words = ["클라우드", "AI", "데이터", "DX"];
-  const colors = ["from-blue-500 to-cyan-500", "from-purple-500 to-pink-500", "from-green-500 to-emerald-500", "from-orange-500 to-red-500"];
+  const colors = ["from-cyan-400 to-cyan-600", "from-cyan-400 to-cyan-600", "from-cyan-400 to-cyan-600", "from-cyan-400 to-cyan-600"];
 
   useEffect(() => {
     const timeout = setTimeout(() => setShowContent(true), 1000);
@@ -23,12 +23,12 @@ const Hero = () => {
   }, [showContent]);
 
   return (
-    <header className="relative w-full h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center overflow-hidden">
+    <header className="relative w-full h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center overflow-hidden">
       {/* 배경 애니메이션 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-slate-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
       {/* 그리드 패턴 */}
@@ -36,9 +36,9 @@ const Hero = () => {
 
       {/* 이름 등장 애니메이션 */}
       {!showContent && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
           <div className="text-center">
-            <h1 className="text-6xl md:text-8xl font-extrabold tracking-wider animate-fade-in bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl font-extrabold tracking-wider animate-fade-in bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
               Koo kyungseon
             </h1>
             <div className="mt-8 flex justify-center">
@@ -68,7 +68,7 @@ const Hero = () => {
           <div className="space-y-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-wide animate-slide-up">
               안녕하세요, <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
                 구경선
               </span>입니다
             </h1>
@@ -78,14 +78,14 @@ const Hero = () => {
                 <Cloud className="text-cyan-400" size={20} />
                 <span className="text-sm md:text-lg">Cloud</span>
               </div>
-              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full animate-pulse"></div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <Database className="text-purple-400" size={20} />
+                <Database className="text-cyan-400" size={20} />
                 <span className="text-sm md:text-lg">Data</span>
               </div>
-              <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full animate-pulse"></div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <Code className="text-pink-400" size={20} />
+                <Code className="text-cyan-400" size={20} />
                 <span className="text-sm md:text-lg">AI</span>
               </div>
             </div>
@@ -112,7 +112,7 @@ const Hero = () => {
                 href="https://github.com/kookyungseon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl shadow-xl hover:shadow-2xl hover:from-cyan-400 hover:via-purple-400 hover:to-pink-400 transition-all duration-300 transform hover:scale-105"
+                className="group flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl shadow-xl hover:shadow-2xl hover:from-cyan-400 hover:to-cyan-500 transition-all duration-300 transform hover:scale-105"
               >
                 <Github size={20} className="mr-3 group-hover:animate-bounce" />
                 깃허브

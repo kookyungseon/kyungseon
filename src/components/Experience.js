@@ -17,7 +17,7 @@ const Experience = () => {
         "사용자 경험 개선을 위한 성능 최적화"
       ],
       technologies: ["PHP", "GnuBoard", "Translation API", "FTP", "MySQL"],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: Code2
     },
     {
@@ -32,7 +32,7 @@ const Experience = () => {
         "기획부터 배포까지 전 과정 경험"
       ],
       technologies: ["AWS", "MSA", "Docker", "Kubernetes", "DevOps", "Python", "Java"],
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-slate-600 to-slate-700",
       icon: Cloud
     },
     {
@@ -47,7 +47,7 @@ const Experience = () => {
         "팀 협업을 통한 완전한 앱 개발 과정 경험"
       ],
       technologies: ["Flutter", "Dart", "REST API", "UI/UX Design"],
-      gradient: "from-green-500 to-emerald-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: Users
     }
   ];
@@ -72,17 +72,17 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <section id="experience" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* 배경 효과 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
               경력 & 경험
             </span>
           </h2>
@@ -144,7 +144,7 @@ const Experience = () => {
                       <div className="grid gap-4">
                         {exp.achievements.map((achievement, i) => (
                           <div key={i} className="flex items-start space-x-3 bg-slate-700/30 p-4 rounded-xl hover:bg-slate-700/50 transition-colors">
-                            <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full mt-2 flex-shrink-0"></div>
                             <span className="text-gray-300">{achievement}</span>
                           </div>
                         ))}
@@ -154,14 +154,14 @@ const Experience = () => {
                     {/* 기술 스택 */}
                     <div>
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                        <Code2 className="text-purple-400 mr-3" size={24} />
+                        <Code2 className="text-cyan-400 mr-3" size={24} />
                         사용 기술
                       </h4>
                       <div className="flex flex-wrap gap-3">
                         {exp.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-4 py-2 bg-gradient-to-r from-slate-700 to-slate-600 text-gray-300 rounded-full text-sm font-medium hover:from-cyan-500 hover:to-purple-500 hover:text-white transition-all duration-300 cursor-default"
+                            className="px-4 py-2 bg-gradient-to-r from-slate-700 to-slate-600 text-gray-300 rounded-full text-sm font-medium hover:from-cyan-500 hover:to-cyan-600 hover:text-white transition-all duration-300 cursor-default"
                           >
                             {tech}
                           </span>

@@ -36,12 +36,12 @@ const ProjectCard = ({ project, index }) => {
 
   const getGradient = (index) => {
     const gradients = [
-      "from-blue-500 to-cyan-500",
-      "from-purple-500 to-pink-500", 
-      "from-green-500 to-emerald-500",
-      "from-orange-500 to-red-500",
-      "from-indigo-500 to-purple-500",
-      "from-pink-500 to-rose-500"
+      "from-cyan-500 to-cyan-600",
+      "from-slate-600 to-slate-700", 
+      "from-cyan-500 to-cyan-600",
+      "from-slate-600 to-slate-700",
+      "from-cyan-500 to-cyan-600",
+      "from-slate-600 to-slate-700"
     ];
     return gradients[index % gradients.length];
   };
@@ -121,7 +121,7 @@ const ProjectCard = ({ project, index }) => {
               {project.technologies.slice(0, 4).map((tech, techIndex) => (
                 <span
                   key={techIndex}
-                  className="px-3 py-1 bg-slate-700/50 text-gray-300 text-xs rounded-full hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-500 hover:text-white transition-all duration-300 cursor-default"
+                  className="px-3 py-1 bg-slate-700/50 text-gray-300 text-xs rounded-full hover:bg-gradient-to-r hover:from-cyan-500 hover:to-cyan-600 hover:text-white transition-all duration-300 cursor-default"
                 >
                   {tech}
                 </span>
@@ -215,13 +215,13 @@ const Projects = () => {
       {/* 배경 효과 */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
               프로젝트
             </span>
           </h2>
@@ -234,7 +234,7 @@ const Projects = () => {
               <span className="text-sm">Featured Projects</span>
             </div>
             <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-            <div className="flex items-center space-x-2 text-purple-400">
+            <div className="flex items-center space-x-2 text-cyan-400">
               <Award size={20} />
               <span className="text-sm">Award Winning</span>
             </div>
@@ -250,7 +250,7 @@ const Projects = () => {
         <div className="text-center">
           <a 
             href="https://github.com/kookyungseon"
-            className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:from-cyan-400 hover:via-purple-400 hover:to-pink-400 transition-all duration-300 transform hover:scale-105"
+            className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:from-cyan-400 hover:to-cyan-500 transition-all duration-300 transform hover:scale-105"
             target="_blank"
             rel="noopener noreferrer"
           >

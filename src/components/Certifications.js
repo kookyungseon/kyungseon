@@ -10,7 +10,7 @@ const Certifications = () => {
       code: "DAsP",
       description: "Data Architecture Semi-Professional",
       date: "2024.10.25",
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: CheckCircle
     },
     {
@@ -18,7 +18,7 @@ const Certifications = () => {
       code: "ADsP",
       description: "Advanced Data Analytics Semi-Professional",
       date: "2024.11.29",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-slate-600 to-slate-700",
       icon: CheckCircle
     },
     {
@@ -26,7 +26,7 @@ const Certifications = () => {
       code: "BigData Analyst",
       description: "Big Data Analysis Specialist",
       date: "2025.07.11",
-      gradient: "from-green-500 to-emerald-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: Award
     },
     {
@@ -34,7 +34,7 @@ const Certifications = () => {
       code: "SQLD",
       description: "SQL Developer",
       date: "2025.09.19",
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-slate-600 to-slate-700",
       icon: CheckCircle
     },
     {
@@ -43,7 +43,7 @@ const Certifications = () => {
       description: "TOEIC Speaking Test",
       date: "2025.09.01",
       grade: "IM3",
-      gradient: "from-indigo-500 to-purple-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: Star
     }
   ];
@@ -54,7 +54,7 @@ const Certifications = () => {
       competition: "2024 충청권 ICT 이노베이션 아이디어 및 SW 개발 공모전",
       organization: "세종테크노파크 원장상",
       date: "2024.09.11",
-      gradient: "from-yellow-500 to-orange-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: Trophy
     }
   ];
@@ -65,7 +65,7 @@ const Certifications = () => {
       competition: "충북 오픈소스 컨트리뷰션",
       organization: "충북대학교 SW중심대학사업단",
       date: "2024.09.09",
-      gradient: "from-cyan-500 to-blue-500",
+      gradient: "from-slate-600 to-slate-700",
       icon: Crown
     },
     {
@@ -73,7 +73,7 @@ const Certifications = () => {
       competition: "멀티캠퍼스 융복합 프로젝트",
       organization: "멀티캠퍼스",
       date: "2023.02.16",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-cyan-500 to-cyan-600",
       icon: Medal
     }
   ];
@@ -98,17 +98,17 @@ const Certifications = () => {
   }, []);
 
   return (
-    <section id="certifications" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <section id="certifications" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* 배경 효과 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
               자격증 & 수상내역
             </span>
           </h2>
@@ -171,7 +171,7 @@ const Certifications = () => {
           {/* 수상내역 섹션 */}
           <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-8 rounded-3xl shadow-2xl">
             <div className="flex items-center mb-8">
-              <div className="p-3 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg mr-4">
+              <div className="p-3 rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 shadow-lg mr-4">
                 <Trophy className="text-white" size={32} />
               </div>
               <h3 className="text-3xl font-bold text-white">수상내역</h3>
@@ -208,7 +208,7 @@ const Certifications = () => {
                           <div className="flex-1">
                             <h5 className="text-xl font-bold text-white mb-2">{award.title}</h5>
                             <p className="text-gray-300 mb-2">{award.competition}</p>
-                            <p className="text-purple-400 font-medium mb-2">{award.organization}</p>
+                            <p className="text-cyan-400 font-medium mb-2">{award.organization}</p>
                             <p className="text-gray-400 text-sm">{award.date}</p>
                           </div>
                         </div>
@@ -221,7 +221,7 @@ const Certifications = () => {
 
             {/* 교내 수상 */}
             <div>
-              <h4 className="text-xl font-bold text-purple-400 mb-6 flex items-center">
+              <h4 className="text-xl font-bold text-cyan-400 mb-6 flex items-center">
                 <Crown className="mr-3" size={20} />
                 교내 수상
               </h4>
@@ -250,7 +250,7 @@ const Certifications = () => {
                           <div className="flex-1">
                             <h5 className="text-xl font-bold text-white mb-2">{award.title}</h5>
                             <p className="text-gray-300 mb-2">{award.competition}</p>
-                            <p className="text-purple-400 font-medium mb-2">{award.organization}</p>
+                            <p className="text-cyan-400 font-medium mb-2">{award.organization}</p>
                             <p className="text-gray-400 text-sm">{award.date}</p>
                           </div>
                         </div>
