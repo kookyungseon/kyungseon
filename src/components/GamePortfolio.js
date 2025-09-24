@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, Text, Box, Sphere, Plane, Html } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Text, Html } from '@react-three/drei';
 import { Physics, useBox, usePlane, useSphere } from '@react-three/cannon';
-import { useKeyboardControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 // 플레이어 컴포넌트
@@ -15,10 +14,67 @@ function Player({ position, onEnterZone }) {
   }));
 
   const velocity = useRef([0, 0, 0]);
-  const [keys] = useKeyboardControls();
+  const keys = useRef({
+    forward: false,
+    backward: false,
+    leftward: false,
+    rightward: false
+  });
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.code) {
+        case 'KeyW':
+        case 'ArrowUp':
+          keys.current.forward = true;
+          break;
+        case 'KeyS':
+        case 'ArrowDown':
+          keys.current.backward = true;
+          break;
+        case 'KeyA':
+        case 'ArrowLeft':
+          keys.current.leftward = true;
+          break;
+        case 'KeyD':
+        case 'ArrowRight':
+          keys.current.rightward = true;
+          break;
+      }
+    };
+
+    const handleKeyUp = (event) => {
+      switch (event.code) {
+        case 'KeyW':
+        case 'ArrowUp':
+          keys.current.forward = false;
+          break;
+        case 'KeyS':
+        case 'ArrowDown':
+          keys.current.backward = false;
+          break;
+        case 'KeyA':
+        case 'ArrowLeft':
+          keys.current.leftward = false;
+          break;
+        case 'KeyD':
+        case 'ArrowRight':
+          keys.current.rightward = false;
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
 
   useFrame(() => {
-    const { forward, backward, leftward, rightward } = keys;
+    const { forward, backward, leftward, rightward } = keys.current;
     
     // 이동 속도 설정
     const speed = 5;
