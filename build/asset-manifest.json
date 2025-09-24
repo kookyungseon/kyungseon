@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/kyungseon/static/css/main.5ab92325.css",
-    "main.js": "/kyungseon/static/js/main.f76a6637.js",
+    "main.css": "/kyungseon/static/css/main.735a325c.css",
+    "main.js": "/kyungseon/static/js/main.5c19fbf9.js",
     "static/js/453.1dd711a6.chunk.js": "/kyungseon/static/js/453.1dd711a6.chunk.js",
     "static/media/car.png": "/kyungseon/static/media/car.b00aa7a77c927d1e43d3.png",
     "static/media/tour.png": "/kyungseon/static/media/tour.3f5ef62d9bb96790350c.png",
@@ -10,12 +10,12 @@
     "static/media/pill.png": "/kyungseon/static/media/pill.5e6f119e040dfd3d1c57.png",
     "static/media/mafia.png": "/kyungseon/static/media/mafia.c0ccec300dec58c8a885.png",
     "index.html": "/kyungseon/index.html",
-    "main.5ab92325.css.map": "/kyungseon/static/css/main.5ab92325.css.map",
-    "main.f76a6637.js.map": "/kyungseon/static/js/main.f76a6637.js.map",
+    "main.735a325c.css.map": "/kyungseon/static/css/main.735a325c.css.map",
+    "main.5c19fbf9.js.map": "/kyungseon/static/js/main.5c19fbf9.js.map",
     "453.1dd711a6.chunk.js.map": "/kyungseon/static/js/453.1dd711a6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ab92325.css",
-    "static/js/main.f76a6637.js"
+    "static/css/main.735a325c.css",
+    "static/js/main.5c19fbf9.js"
   ]
 }
