@@ -1,15 +1,4 @@
 import React, { useState } from 'react';
-import { 
-  Github, 
-  Mail, 
-  BookOpen, 
-  Award, 
-  Briefcase, 
-  Code,
-  Menu,
-  X,
-  ExternalLink 
-} from 'lucide-react';
 
 import Education from './Certifications';
 import Certifications from './Experience';
