@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Code, ExternalLink, Github } from 'lucide-react';
+import { Code, ExternalLink, Github, Star, Award, Zap, Eye } from 'lucide-react';
 import carImage from "./car.png";
 import tourImage from "./tour.png";
 import waterImage from "./water.png";
@@ -7,8 +7,9 @@ import mafiaImage from "./mafia.png";
 import hospitalImage from "./hospital.png";
 import pillImage from "./pill.png";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const ProjectCard = ({ project }) => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 } // 30%가 화면에 보일 때 트리거
+      { threshold: 0.2 }
     );
 
     const currentCardRef = cardRef.current;
@@ -33,41 +34,126 @@ const ProjectCard = ({ project }) => {
     };
   }, []);
 
+  const getGradient = (index) => {
+    const gradients = [
+      "from-blue-500 to-cyan-500",
+      "from-purple-500 to-pink-500", 
+      "from-green-500 to-emerald-500",
+      "from-orange-500 to-red-500",
+      "from-indigo-500 to-purple-500",
+      "from-pink-500 to-rose-500"
+    ];
+    return gradients[index % gradients.length];
+  };
+
+  const getIcon = (index) => {
+    const icons = [Award, Star, Zap, Code, Github, Eye];
+    return icons[index % icons.length];
+  };
+
+  const IconComponent = getIcon(index);
+
   return (
     <div
       ref={cardRef}
-      className={`bg-white p-6 rounded-lg shadow-lg group hover:shadow-xl transition-all duration-500 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      className={`transition-all duration-1000 transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
       }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="h-56 bg-gray-200 rounded-lg mb-6 overflow-hidden">
-        <img
-          src={project.image}
-          alt={`${project.title} 이미지`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+      <div className="relative group">
+        {/* 배경 그라데이션 */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(index)} rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+        
+        {/* 메인 카드 */}
+        <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 group-hover:scale-[1.02] overflow-hidden">
+          {/* 이미지 영역 */}
+          <div className="relative h-64 overflow-hidden">
+            <img
+              src={project.image}
+              alt={`${project.title} 이미지`}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            {/* 오버레이 */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* 카테고리 배지 */}
+            <div className="absolute top-4 left-4">
+              <span className="bg-gradient-to-r from-slate-700 to-slate-600 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                {project.category}
+              </span>
+            </div>
+
+            {/* 아이콘 */}
+            <div className="absolute top-4 right-4">
+              <div className={`p-3 rounded-full bg-gradient-to-r ${getGradient(index)} shadow-lg`}>
+                <IconComponent className="text-white" size={20} />
+              </div>
+            </div>
+
+            {/* 호버 시 깃허브 링크 */}
+            <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+              >
+                <Github className="text-white" size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* 콘텐츠 영역 */}
+          <div className="p-6">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+              {project.title}
+            </h3>
+            
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 line-clamp-3">
+              {project.description}
+            </p>
+
+            {/* 기술 스택 */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  className="px-3 py-1 bg-slate-700/50 text-gray-300 text-xs rounded-full hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-500 hover:text-white transition-all duration-300 cursor-default"
+                >
+                  {tech}
+                </span>
+              ))}
+              {project.technologies.length > 4 && (
+                <span className="px-3 py-1 bg-slate-700/50 text-gray-400 text-xs rounded-full">
+                  +{project.technologies.length - 4}
+                </span>
+              )}
+            </div>
+
+            {/* 액션 버튼 */}
+            <div className="flex items-center justify-between">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors group/link"
+              >
+                <Github size={16} />
+                <span className="text-sm font-medium group-hover/link:underline">코드 보기</span>
+                <ExternalLink size={14} className="opacity-0 group-hover/link:opacity-100 transition-opacity" />
+              </a>
+              
+              <div className="flex items-center space-x-1 text-yellow-400">
+                <Star size={14} fill="currentColor" />
+                <span className="text-xs text-gray-400">Featured</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 className="text-2xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors">
-        {project.title}
-      </h3>
-      <p className="text-gray-600 mb-4">{project.category}</p>
-      <p className="text-sm text-gray-500 mb-4">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.technologies.map((tech, index) => (
-          <span key={index} className="bg-blue-50 text-blue-600 text-sm px-4 py-2 rounded-full shadow-sm">
-            {tech}
-          </span>
-        ))}
-      </div>
-      <a
-        href={project.link}
-        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500 transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Github size={20} />
-        코드 보기
-      </a>
     </div>
   );
 };
@@ -125,26 +211,52 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-gray-800 flex items-center gap-2">
-          <Code className="text-blue-600" />
-          프로젝트
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+    <section id="projects" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* 배경 효과 */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              프로젝트
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트 경험
+          </p>
+          <div className="flex justify-center mt-8 space-x-4">
+            <div className="flex items-center space-x-2 text-cyan-400">
+              <Star size={20} />
+              <span className="text-sm">Featured Projects</span>
+            </div>
+            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+            <div className="flex items-center space-x-2 text-purple-400">
+              <Award size={20} />
+              <span className="text-sm">Award Winning</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
-        <div className="text-center mt-12">
+
+        <div className="text-center">
           <a 
             href="https://github.com/kookyungseon"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:from-cyan-400 hover:via-purple-400 hover:to-pink-400 transition-all duration-300 transform hover:scale-105"
             target="_blank"
             rel="noopener noreferrer"
           >
-            더 많은 프로젝트 보기
-            <ExternalLink size={20} />
+            <Github size={24} />
+            <span className="text-lg font-semibold">더 많은 프로젝트 보기</span>
+            <ExternalLink size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </div>
