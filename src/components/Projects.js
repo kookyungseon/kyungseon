@@ -65,10 +65,10 @@ const ProjectCard = ({ project, index }) => {
     >
       <div className="relative group">
         {/* 배경 그라데이션 */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(index)} rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+        <div className="absolute inset-0 bg-gray-800 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
         
         {/* 메인 카드 */}
-        <div className="relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 group-hover:scale-[1.02] overflow-hidden">
+        <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group-hover:scale-[1.02] overflow-hidden">
           {/* 이미지 영역 */}
           <div className="relative h-64 overflow-hidden">
             <img
@@ -88,7 +88,7 @@ const ProjectCard = ({ project, index }) => {
 
             {/* 아이콘 */}
             <div className="absolute top-4 right-4">
-              <div className={`p-3 rounded-full bg-gradient-to-r ${getGradient(index)} shadow-lg`}>
+              <div className="p-3 rounded-full bg-gray-800 border border-gray-700 shadow-lg">
                 <IconComponent className="text-white" size={20} />
               </div>
             </div>
@@ -121,7 +121,7 @@ const ProjectCard = ({ project, index }) => {
               {project.technologies.slice(0, 4).map((tech, techIndex) => (
                 <span
                   key={techIndex}
-                  className="px-3 py-1 bg-slate-700/50 text-gray-300 text-xs rounded-full hover:bg-gradient-to-r hover:from-cyan-500 hover:to-cyan-600 hover:text-white transition-all duration-300 cursor-default"
+                  className="px-3 py-1 bg-gray-800/50 text-gray-300 text-xs rounded-full hover:bg-gray-700 hover:text-white transition-all duration-300 cursor-default"
                 >
                   {tech}
                 </span>
@@ -211,17 +211,17 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+    <section id="projects" className="py-24 px-6 bg-black relative overflow-hidden">
       {/* 배경 효과 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-gray-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
+            <span className="text-gray-300">
               프로젝트
             </span>
           </h2>
@@ -229,12 +229,12 @@ const Projects = () => {
             클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트 경험
           </p>
           <div className="flex justify-center mt-8 space-x-4">
-            <div className="flex items-center space-x-2 text-cyan-400">
+            <div className="flex items-center space-x-2 text-gray-400">
               <Star size={20} />
               <span className="text-sm">Featured Projects</span>
             </div>
             <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-            <div className="flex items-center space-x-2 text-cyan-400">
+            <div className="flex items-center space-x-2 text-gray-400">
               <Award size={20} />
               <span className="text-sm">Award Winning</span>
             </div>
@@ -250,13 +250,13 @@ const Projects = () => {
         <div className="text-center">
           <a 
             href="https://github.com/kookyungseon"
-            className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:from-cyan-400 hover:to-cyan-500 transition-all duration-300 transform hover:scale-105"
+            className="group inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github size={24} />
+            <Github size={24} className="text-black" />
             <span className="text-lg font-semibold">더 많은 프로젝트 보기</span>
-            <ExternalLink size={20} className="group-hover:translate-x-1 transition-transform" />
+            <ExternalLink size={20} className="group-hover:translate-x-1 transition-transform text-black" />
           </a>
         </div>
       </div>

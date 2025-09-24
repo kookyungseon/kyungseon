@@ -98,17 +98,17 @@ const Certifications = () => {
   }, []);
 
   return (
-    <section id="certifications" className="py-24 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+    <section id="certifications" className="py-24 px-6 bg-black relative overflow-hidden">
       {/* 배경 효과 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-slate-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
+            <span className="text-gray-300">
               자격증 & 수상내역
             </span>
           </h2>
@@ -122,7 +122,7 @@ const Certifications = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* 자격증 섹션 */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-8 rounded-3xl shadow-2xl">
+          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 p-8 rounded-3xl shadow-2xl">
             <div className="flex items-center mb-8">
               <div className="p-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 shadow-lg mr-4">
                 <Award className="text-white" size={32} />
@@ -169,9 +169,9 @@ const Certifications = () => {
           </div>
           
           {/* 수상내역 섹션 */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-8 rounded-3xl shadow-2xl">
+          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 p-8 rounded-3xl shadow-2xl">
             <div className="flex items-center mb-8">
-              <div className="p-3 rounded-2xl bg-gradient-to-r from-slate-600 to-slate-700 shadow-lg mr-4">
+              <div className="p-3 rounded-2xl bg-gray-800 border border-gray-700 shadow-lg mr-4">
                 <Trophy className="text-white" size={32} />
               </div>
               <h3 className="text-3xl font-bold text-white">수상내역</h3>
@@ -179,7 +179,7 @@ const Certifications = () => {
             
             {/* 대외 수상 */}
             <div className="mb-10">
-              <h4 className="text-xl font-bold text-cyan-400 mb-6 flex items-center">
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center">
                 <Star className="mr-3" size={20} />
                 대외 수상
               </h4>
@@ -208,7 +208,7 @@ const Certifications = () => {
                           <div className="flex-1">
                             <h5 className="text-xl font-bold text-white mb-2">{award.title}</h5>
                             <p className="text-gray-300 mb-2">{award.competition}</p>
-                            <p className="text-cyan-400 font-medium mb-2">{award.organization}</p>
+                            <p className="text-gray-300 font-medium mb-2">{award.organization}</p>
                             <p className="text-gray-400 text-sm">{award.date}</p>
                           </div>
                         </div>
@@ -221,7 +221,7 @@ const Certifications = () => {
 
             {/* 교내 수상 */}
             <div>
-              <h4 className="text-xl font-bold text-cyan-400 mb-6 flex items-center">
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center">
                 <Crown className="mr-3" size={20} />
                 교내 수상
               </h4>
@@ -250,7 +250,7 @@ const Certifications = () => {
                           <div className="flex-1">
                             <h5 className="text-xl font-bold text-white mb-2">{award.title}</h5>
                             <p className="text-gray-300 mb-2">{award.competition}</p>
-                            <p className="text-cyan-400 font-medium mb-2">{award.organization}</p>
+                            <p className="text-gray-300 font-medium mb-2">{award.organization}</p>
                             <p className="text-gray-400 text-sm">{award.date}</p>
                           </div>
                         </div>
