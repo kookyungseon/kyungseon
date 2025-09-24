@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kyungseon/static/css/main.ccfb4f8a.css",
-    "main.js": "/kyungseon/static/js/main.3ea349dc.js",
+    "main.css": "/kyungseon/static/css/main.c7d67033.css",
+    "main.js": "/kyungseon/static/js/main.55f12b51.js",
     "static/js/453.1dd711a6.chunk.js": "/kyungseon/static/js/453.1dd711a6.chunk.js",
     "index.html": "/kyungseon/index.html",
-    "main.ccfb4f8a.css.map": "/kyungseon/static/css/main.ccfb4f8a.css.map",
-    "main.3ea349dc.js.map": "/kyungseon/static/js/main.3ea349dc.js.map",
+    "main.c7d67033.css.map": "/kyungseon/static/css/main.c7d67033.css.map",
+    "main.55f12b51.js.map": "/kyungseon/static/js/main.55f12b51.js.map",
     "453.1dd711a6.chunk.js.map": "/kyungseon/static/js/453.1dd711a6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ccfb4f8a.css",
-    "static/js/main.3ea349dc.js"
+    "static/css/main.c7d67033.css",
+    "static/js/main.55f12b51.js"
   ]
 }

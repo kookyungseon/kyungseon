@@ -52,22 +52,22 @@ const Hero = () => {
             </span>입니다
           </h1>
 
-          <div className="flex justify-center items-center space-x-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <div className="flex items-center space-x-2 text-gray-600">
-              <Cloud className="text-gray-500" size={20} />
-              <span className="text-sm md:text-lg">Cloud</span>
-            </div>
-            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-            <div className="flex items-center space-x-2 text-gray-600">
-              <Database className="text-gray-500" size={20} />
-              <span className="text-sm md:text-lg">Data</span>
-            </div>
-            <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-            <div className="flex items-center space-x-2 text-gray-600">
-              <Code className="text-gray-500" size={20} />
-              <span className="text-sm md:text-lg">AI</span>
-            </div>
-          </div>
+                 <div className="flex justify-center items-center space-x-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+                   <div className="flex items-center space-x-2 text-gray-600 bg-white/80 px-4 py-2 rounded-full shadow-sm">
+                     <Cloud className="text-gray-500" size={20} />
+                     <span className="text-sm md:text-lg font-medium">Cloud</span>
+                   </div>
+                   <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                   <div className="flex items-center space-x-2 text-gray-600 bg-white/80 px-4 py-2 rounded-full shadow-sm">
+                     <Database className="text-gray-500" size={20} />
+                     <span className="text-sm md:text-lg font-medium">Data</span>
+                   </div>
+                   <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                   <div className="flex items-center space-x-2 text-gray-600 bg-white/80 px-4 py-2 rounded-full shadow-sm">
+                     <Code className="text-gray-500" size={20} />
+                     <span className="text-sm md:text-lg font-medium">AI</span>
+                   </div>
+                 </div>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: "0.6s" }}>
             충북대학교 지구환경과학 & 소프트웨어 복수전공

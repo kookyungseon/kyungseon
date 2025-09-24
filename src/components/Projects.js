@@ -6,28 +6,37 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <div
-      className={`group relative bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden ${
-        isHovered ? 'scale-105' : 'scale-100'
-      }`}
+      className={`group relative bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden ${
+        isHovered ? 'scale-[1.02] -translate-y-2' : 'scale-100'
+      } ${project.highlight ? 'ring-2 ring-gray-300 ring-opacity-50' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* 하이라이트 그라데이션 (졸업작품만) */}
+      {project.highlight && (
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-50"></div>
+      )}
+      
       {/* 메인 콘텐츠 */}
       <div className="relative z-10 p-8">
         {/* 헤더 */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center space-x-4">
-            <div className="p-4 rounded-xl bg-gray-100 shadow-lg">
-              <span className="text-3xl">{project.emoji}</span>
+            <div className={`p-4 rounded-2xl shadow-lg transition-all duration-300 ${
+              project.highlight ? 'bg-gradient-to-br from-gray-100 to-gray-200' : 'bg-gray-100'
+            }`}>
+              <span className="text-4xl">{project.emoji}</span>
             </div>
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
-              <div className="flex items-center space-x-2">
-                <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">{project.title}</h3>
+              <div className="flex items-center space-x-2 flex-wrap">
+                <span className={`px-4 py-2 rounded-full text-sm font-medium ${
+                  project.highlight ? 'bg-gray-200 text-gray-800 border border-gray-300' : 'bg-gray-100 text-gray-700'
+                }`}>
                   {project.category}
                 </span>
                 {project.award && (
-                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800">
+                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
                     🏆 {project.award}
                   </span>
                 )}
@@ -40,7 +49,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+              className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-300 hover:scale-110"
             >
               <Github size={20} className="text-gray-600" />
             </a>
@@ -49,7 +58,7 @@ const ProjectCard = ({ project, index }) => {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                className="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-300 hover:scale-110"
               >
                 <ExternalLink size={20} className="text-gray-600" />
               </a>
@@ -58,38 +67,43 @@ const ProjectCard = ({ project, index }) => {
         </div>
 
         {/* 설명 */}
-        <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+        <p className="text-gray-600 mb-6 leading-relaxed text-base">{project.description}</p>
 
         {/* 메타 정보 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-2xl">
           <div className="flex items-center space-x-2">
             <Calendar className="text-gray-500" size={16} />
-            <span className="text-sm text-gray-600">{project.period}</span>
+            <span className="text-sm text-gray-600 font-medium">{project.period}</span>
           </div>
           <div className="flex items-center space-x-2">
             <User className="text-gray-500" size={16} />
-            <span className="text-sm text-gray-600">{project.role}</span>
+            <span className="text-sm text-gray-600 font-medium">{project.role}</span>
           </div>
           <div className="flex items-center space-x-2">
             <Wrench className="text-gray-500" size={16} />
-            <span className="text-sm text-gray-600">{project.techCount}개 기술</span>
+            <span className="text-sm text-gray-600 font-medium">{project.techCount}개 기술</span>
           </div>
         </div>
 
         {/* 기술 스택 */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.technologies.map((tech, techIndex) => (
-            <span
-              key={techIndex}
-              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
-            >
-              {tech}
-            </span>
-          ))}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-gray-700 mb-3">🛠️ 기술 스택</h4>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, techIndex) => (
+              <span
+                key={techIndex}
+                className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+                  project.highlight ? 'bg-gray-200 text-gray-800' : 'bg-gray-100 text-gray-700'
+                }`}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* 링크 */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <a
             href={project.github}
             target="_blank"
@@ -105,7 +119,9 @@ const ProjectCard = ({ project, index }) => {
               {project.features.map((feature, featureIndex) => (
                 <span
                   key={featureIndex}
-                  className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
+                  className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    feature === '졸업작품' ? 'bg-gray-200 text-gray-800' : 'bg-gray-100 text-gray-600'
+                  }`}
                 >
                   {feature}
                 </span>
@@ -120,6 +136,19 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   const projects = [
+    {
+      title: "졸업작품: R3F 기반 3D 게임형 포트폴리오",
+      category: "🎓 졸업작품 - R3F, 물리엔진, 전역 상태 관리",
+      description: "R3F를 사용해 게임과 같은 방향키 이동을 구현하며, 물리엔진을 통해 3D 공간에서의 물리력을 구현한 인터랙티브 포트폴리오. 특정 지역 진입 시 정보 표시, Recoil을 활용한 전역 상태 관리, 모델 최적화 및 텍스처 압축, 물리 엔진의 Static, Kinematic, Dynamic 활용.",
+      period: "2025년 1학기",
+      role: "Full-Stack Developer",
+      technologies: ["React Three Fiber", "Three.js", "Cannon.js", "Recoil", "Blender", "GLTF Optimization"],
+      techCount: 6,
+      github: "https://github.com/CBNU-SW-1-11",
+      emoji: "🎮",
+      features: ["졸업작품", "3D Interactive"],
+      highlight: true
+    },
     {
       title: "Designated Parking Management System",
       category: "Cloud, Big Data, IoT Project",
@@ -196,13 +225,45 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 text-gray-900">🚀 Featured Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
+    <section id="projects" className="py-24 px-6 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* 배경 패턴 */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23f3f4f6%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* 헤더 */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center justify-center mb-6">
+            <div className="p-4 bg-gray-100 rounded-2xl mr-4">
+              <span className="text-4xl">🚀</span>
+            </div>
+            <h2 className="text-6xl font-bold text-gray-900">Featured Projects</h2>
+          </div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 최신 졸업작품을 소개합니다
+          </p>
+        </div>
+
+        {/* 졸업작품 하이라이트 */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">🎓 졸업작품</h3>
+            <p className="text-gray-600">React Three Fiber를 활용한 3D 인터랙티브 포트폴리오</p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <ProjectCard project={projects[0]} index={0} />
+          </div>
+        </div>
+
+        {/* 기타 프로젝트들 */}
+        <div className="mb-8">
+          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">💼 기타 프로젝트</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.slice(1).map((project, index) => (
+              <ProjectCard key={index + 1} project={project} index={index + 1} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
