@@ -72,25 +72,34 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-24 px-6 bg-black relative overflow-hidden">
+    <section id="experience" className="py-24 px-6 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
       {/* 배경 효과 */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gray-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span className="text-gray-300">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               경력 & 경험
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             다양한 프로젝트와 교육 과정을 통해 쌓은 실무 경험과 전문성
           </p>
-          <div className="flex justify-center mt-8">
-            <Sparkles className="text-white animate-spin" size={32} />
+          <div className="flex justify-center items-center space-x-4">
+            <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-blue-600/20 px-4 py-2 rounded-full border border-blue-500/30">
+              <Sparkles className="text-blue-400 animate-spin" size={20} />
+              <span className="text-blue-300 text-sm">Professional Experience</span>
+            </div>
+            <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full animate-pulse"></div>
+            <div className="flex items-center space-x-2 bg-gradient-to-r from-purple-500/20 to-purple-600/20 px-4 py-2 rounded-full border border-purple-500/30">
+              <Code2 className="text-purple-400" size={20} />
+              <span className="text-purple-300 text-sm">Technical Skills</span>
+            </div>
           </div>
         </div>
 
@@ -111,24 +120,24 @@ const Experience = () => {
               >
                 <div className="relative group">
                   {/* 카드 배경 그라데이션 */}
-                  <div className="absolute inset-0 bg-gray-800 rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  <div className={`absolute inset-0 bg-gradient-to-r ${exp.gradient} rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
                   
                   {/* 메인 카드 */}
-                  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700 p-8 md:p-12 rounded-3xl shadow-2xl hover:shadow-gray-500/20 transition-all duration-500 group-hover:scale-[1.02]">
+                  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700 p-8 md:p-12 rounded-3xl shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 group-hover:scale-[1.02] group-hover:border-cyan-500/30">
                     {/* 헤더 */}
                     <div className="flex flex-col md:flex-row justify-between items-start mb-8">
                       <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                        <div className="p-4 rounded-2xl bg-gray-800 border border-gray-700 shadow-lg">
-                          <IconComponent className="text-white" size={32} />
+                        <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 shadow-lg group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                          <IconComponent className="text-blue-400 group-hover:text-purple-400 transition-colors duration-300" size={32} />
                         </div>
                         <div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-white">{exp.company}</h3>
-                          <p className="text-gray-300 text-lg font-semibold">{exp.position}</p>
+                          <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">{exp.company}</h3>
+                          <p className="text-gray-300 text-lg font-semibold group-hover:text-purple-300 transition-colors duration-300">{exp.position}</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700">
-                        <Calendar className="text-white" size={16} />
-                        <span className="text-gray-300 font-medium">{exp.period}</span>
+                      <div className="flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-4 py-2 rounded-full border border-cyan-500/30">
+                        <Calendar className="text-cyan-400" size={16} />
+                        <span className="text-cyan-300 font-medium">{exp.period}</span>
                       </div>
                     </div>
 
@@ -138,13 +147,13 @@ const Experience = () => {
                     {/* 성과 */}
                     <div className="mb-8">
                       <h4 className="text-xl font-bold text-white mb-6 flex items-center">
-                        <CheckCircle className="text-white mr-3" size={24} />
+                        <CheckCircle className="text-green-400 mr-3" size={24} />
                         주요 성과
                       </h4>
                       <div className="grid gap-4">
                         {exp.achievements.map((achievement, i) => (
-                          <div key={i} className="flex items-start space-x-3 bg-gray-800/30 p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <div key={i} className="flex items-start space-x-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-4 rounded-xl hover:from-blue-500/20 hover:to-purple-500/20 transition-all duration-300 border border-blue-500/20">
+                            <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-2 flex-shrink-0 animate-pulse"></div>
                             <span className="text-gray-300">{achievement}</span>
                           </div>
                         ))}
@@ -154,14 +163,14 @@ const Experience = () => {
                     {/* 기술 스택 */}
                     <div>
                       <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                        <Code2 className="text-white mr-3" size={24} />
+                        <Code2 className="text-purple-400 mr-3" size={24} />
                         사용 기술
                       </h4>
                       <div className="flex flex-wrap gap-3">
                         {exp.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-4 py-2 bg-gray-800 border border-gray-700 text-gray-300 rounded-full text-sm font-medium hover:bg-gray-700 hover:text-white transition-all duration-300 cursor-default"
+                            className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-purple-300 rounded-full text-sm font-medium hover:from-purple-500/30 hover:to-cyan-500/30 hover:text-white hover:border-purple-400/50 transition-all duration-300 cursor-default"
                           >
                             {tech}
                           </span>
