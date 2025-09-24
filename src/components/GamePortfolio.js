@@ -2,8 +2,126 @@ import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Text, Html } from '@react-three/drei';
 
-// 간단한 박스 컴포넌트
-function Box({ position, color, onEnterZone, projectId }) {
+// 나무 컴포넌트
+function Tree({ position }) {
+  return (
+    <group position={position}>
+      {/* 나무 줄기 */}
+      <mesh position={[0, 1, 0]}>
+        <cylinderGeometry args={[0.2, 0.3, 2, 8]} />
+        <meshStandardMaterial color="#8B4513" />
+      </mesh>
+      {/* 나무 잎사귀 */}
+      <mesh position={[0, 2.5, 0]}>
+        <sphereGeometry args={[1, 8, 6]} />
+        <meshStandardMaterial color="#228B22" />
+      </mesh>
+    </group>
+  );
+}
+
+// 꽃 컴포넌트
+function Flower({ position }) {
+  return (
+    <group position={position}>
+      {/* 꽃 줄기 */}
+      <mesh position={[0, 0.5, 0]}>
+        <cylinderGeometry args={[0.05, 0.05, 1, 6]} />
+        <meshStandardMaterial color="#32CD32" />
+      </mesh>
+      {/* 꽃잎들 */}
+      {[0, 1, 2, 3, 4].map((i) => (
+        <mesh key={i} position={[Math.cos(i * 1.26) * 0.3, 1, Math.sin(i * 1.26) * 0.3]}>
+          <sphereGeometry args={[0.2, 6, 4]} />
+          <meshStandardMaterial color={i % 2 === 0 ? "#FF69B4" : "#FFB6C1"} />
+        </mesh>
+      ))}
+      {/* 꽃 중심 */}
+      <mesh position={[0, 1, 0]}>
+        <sphereGeometry args={[0.1, 6, 4]} />
+        <meshStandardMaterial color="#FFD700" />
+      </mesh>
+    </group>
+  );
+}
+
+// 사람 컴포넌트
+function Person({ position, color = "#FFB6C1" }) {
+  return (
+    <group position={position}>
+      {/* 머리 */}
+      <mesh position={[0, 1.8, 0]}>
+        <sphereGeometry args={[0.3, 8, 6]} />
+        <meshStandardMaterial color={color} />
+      </mesh>
+      {/* 몸통 */}
+      <mesh position={[0, 1, 0]}>
+        <boxGeometry args={[0.4, 0.8, 0.2]} />
+        <meshStandardMaterial color="#4169E1" />
+      </mesh>
+      {/* 팔들 */}
+      <mesh position={[-0.3, 1, 0]}>
+        <boxGeometry args={[0.15, 0.6, 0.15]} />
+        <meshStandardMaterial color={color} />
+      </mesh>
+      <mesh position={[0.3, 1, 0]}>
+        <boxGeometry args={[0.15, 0.6, 0.15]} />
+        <meshStandardMaterial color={color} />
+      </mesh>
+      {/* 다리들 */}
+      <mesh position={[-0.1, 0.3, 0]}>
+        <boxGeometry args={[0.15, 0.6, 0.15]} />
+        <meshStandardMaterial color="#000080" />
+      </mesh>
+      <mesh position={[0.1, 0.3, 0]}>
+        <boxGeometry args={[0.15, 0.6, 0.15]} />
+        <meshStandardMaterial color="#000080" />
+      </mesh>
+    </group>
+  );
+}
+
+// 건물 컴포넌트
+function Building({ position, height = 3, color = "#708090" }) {
+  return (
+    <group position={position}>
+      {/* 건물 본체 */}
+      <mesh position={[0, height/2, 0]}>
+        <boxGeometry args={[2, height, 2]} />
+        <meshStandardMaterial color={color} />
+      </mesh>
+      {/* 지붕 */}
+      <mesh position={[0, height + 0.5, 0]}>
+        <coneGeometry args={[1.5, 1, 4]} />
+        <meshStandardMaterial color="#8B0000" />
+      </mesh>
+      {/* 창문들 */}
+      {[0, 1, 2].map((i) => (
+        <mesh key={i} position={[0.6, height/2 - i * 0.8, 0]}>
+          <boxGeometry args={[0.3, 0.4, 0.05]} />
+          <meshStandardMaterial color="#87CEEB" transparent opacity={0.7} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+// 구름 컴포넌트
+function Cloud({ position }) {
+  return (
+    <group position={position}>
+      {[0, 1, 2, 3].map((i) => (
+        <mesh key={i} position={[i * 0.8 - 1.2, 0, 0]}>
+          <sphereGeometry args={[0.4, 8, 6]} />
+          <meshStandardMaterial color="#FFFFFF" transparent opacity={0.8} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+// 간단한 박스 컴포넌트 (프로젝트 영역)
+function ProjectBox({ position, color, onEnterZone, projectId }) {
   return (
     <group>
       <mesh 
@@ -200,40 +318,81 @@ const GamePortfolio = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-black">
+    <div className="w-full h-screen bg-gradient-to-b from-blue-400 to-blue-600">
       {/* 컨트롤 안내 */}
       <div className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-sm rounded-lg p-4 text-white">
-        <h3 className="text-sm font-medium mb-1">3D 포트폴리오</h3>
+        <h3 className="text-sm font-medium mb-1">🎮 3D 포트폴리오 월드</h3>
         <p className="text-xs text-gray-400">박스를 클릭해서 정보 보기</p>
       </div>
 
       {/* 3D 씬 */}
       <Canvas
-        camera={{ position: [0, 5, 10], fov: 75 }}
+        camera={{ position: [0, 8, 15], fov: 75 }}
       >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
+        {/* 하늘과 구름 */}
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <pointLight position={[-10, 10, -10]} color="#FFD700" intensity={0.5} />
+        
+        {/* 바닥 (풀밭) */}
+        <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[50, 50]} />
+          <meshStandardMaterial color="#90EE90" />
+        </mesh>
+        
+        {/* 구름들 */}
+        <Cloud position={[-15, 8, -10]} />
+        <Cloud position={[15, 6, -15]} />
+        <Cloud position={[0, 7, 20]} />
+        
+        {/* 나무들 */}
+        <Tree position={[-12, 0, -8]} />
+        <Tree position={[12, 0, -8]} />
+        <Tree position={[-8, 0, 12]} />
+        <Tree position={[8, 0, 12]} />
+        <Tree position={[-15, 0, 5]} />
+        <Tree position={[15, 0, 5]} />
+        
+        {/* 꽃들 */}
+        <Flower position={[-6, 0, -6]} />
+        <Flower position={[6, 0, -6]} />
+        <Flower position={[-4, 0, 8]} />
+        <Flower position={[4, 0, 8]} />
+        <Flower position={[-10, 0, 2]} />
+        <Flower position={[10, 0, 2]} />
+        
+        {/* 사람들 */}
+        <Person position={[-3, 0, -8]} color="#FFB6C1" />
+        <Person position={[3, 0, -8]} color="#87CEEB" />
+        <Person position={[-8, 0, 3]} color="#98FB98" />
+        <Person position={[8, 0, 3]} color="#F0E68C" />
+        
+        {/* 건물들 */}
+        <Building position={[-18, 0, -12]} height={4} color="#708090" />
+        <Building position={[18, 0, -12]} height={3} color="#A0522D" />
+        <Building position={[-18, 0, 12]} height={5} color="#696969" />
+        <Building position={[18, 0, 12]} height={3.5} color="#8B4513" />
         
         {/* 프로젝트 박스들 */}
-        <Box position={[5, 0, 0]} color="#ff6b6b" onEnterZone={handleEnterZone} projectId="parking" />
-        <Box position={[0, 0, 5]} color="#4ecdc4" onEnterZone={handleEnterZone} projectId="travel" />
-        <Box position={[-5, 0, 0]} color="#45b7d1" onEnterZone={handleEnterZone} projectId="water" />
-        <Box position={[0, 0, -5]} color="#96ceb4" onEnterZone={handleEnterZone} projectId="telemedicine" />
-        <Box position={[5, 0, 5]} color="#feca57" onEnterZone={handleEnterZone} projectId="pill" />
-        <Box position={[-5, 0, 5]} color="#ff9ff3" onEnterZone={handleEnterZone} projectId="smartwindow" />
+        <ProjectBox position={[5, 0, 0]} color="#ff6b6b" onEnterZone={handleEnterZone} projectId="주차관리" />
+        <ProjectBox position={[0, 0, 5]} color="#4ecdc4" onEnterZone={handleEnterZone} projectId="여행추천" />
+        <ProjectBox position={[-5, 0, 0]} color="#45b7d1" onEnterZone={handleEnterZone} projectId="환경개선" />
+        <ProjectBox position={[0, 0, -5]} color="#96ceb4" onEnterZone={handleEnterZone} projectId="원격의료" />
+        <ProjectBox position={[5, 0, 5]} color="#feca57" onEnterZone={handleEnterZone} projectId="알약인식" />
+        <ProjectBox position={[-5, 0, 5]} color="#ff9ff3" onEnterZone={handleEnterZone} projectId="스마트윈도우" />
         
         {/* 자기소개 */}
-        <Box position={[0, 0, 0]} color="#ffffff" onEnterZone={handleEnterZone} projectId="about" />
+        <ProjectBox position={[0, 0, 0]} color="#ffffff" onEnterZone={handleEnterZone} projectId="자기소개" />
         
         {/* 학력, 자격증, 경력 */}
-        <Box position={[-3, 0, -3]} color="#a8e6cf" onEnterZone={handleEnterZone} projectId="education" />
-        <Box position={[3, 0, -3]} color="#ffd3a5" onEnterZone={handleEnterZone} projectId="certifications" />
-        <Box position={[-3, 0, 3]} color="#fd79a8" onEnterZone={handleEnterZone} projectId="experience" />
+        <ProjectBox position={[-3, 0, -3]} color="#a8e6cf" onEnterZone={handleEnterZone} projectId="학력" />
+        <ProjectBox position={[3, 0, -3]} color="#ffd3a5" onEnterZone={handleEnterZone} projectId="자격증" />
+        <ProjectBox position={[-3, 0, 3]} color="#fd79a8" onEnterZone={handleEnterZone} projectId="경력" />
         
         {/* 정보 패널 */}
         <InfoPanel project={currentProject} visible={!!currentProject} />
         
-        <OrbitControls enablePan={true} enableZoom={true} />
+        <OrbitControls enablePan={true} enableZoom={true} maxPolarAngle={Math.PI / 2} />
       </Canvas>
     </div>
   );
