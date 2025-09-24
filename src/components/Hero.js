@@ -113,16 +113,6 @@ const Hero = () => {
                  </div>
         </div>
 
-        {/* 향상된 스크롤 힌트 */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-600 group cursor-pointer">
-          <span className="text-sm font-medium mb-3 opacity-80 group-hover:opacity-100 transition-opacity duration-300">더 알아보기</span>
-          <div className="relative">
-            <div className="w-8 h-12 border-2 border-gray-400 rounded-full flex justify-center group-hover:border-gray-600 transition-colors duration-300">
-              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce group-hover:bg-gray-600 transition-colors duration-300"></div>
-            </div>
-            <div className="absolute inset-0 w-8 h-12 border-2 border-transparent rounded-full group-hover:border-gray-300 group-hover:animate-ping"></div>
-          </div>
-        </div>
       </div>
     </header>
   );
