@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Github, ExternalLink, Award, Star, Zap, Code, Eye, ArrowRight, Sparkles } from "lucide-react";
+import Project3DCard from "./Project3DCard";
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -12,11 +13,9 @@ const ProjectCard = ({ project, index }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* CSS 3D 배경 요소들 */}
-      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-        <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg transform rotate-12 animate-float"></div>
-        <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full transform -rotate-12 animate-float animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-lg transform rotate-45 animate-spin-slow"></div>
+      {/* Three.js 3D 배경 */}
+      <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+        <Project3DCard project={project} index={index} />
       </div>
 
       {/* 메인 콘텐츠 */}
