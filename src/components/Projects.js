@@ -137,16 +137,16 @@ const ProjectCard = ({ project, index }) => {
 const Projects = () => {
   const projects = [
     {
-      title: "졸업작품: R3F 기반 3D 게임형 포트폴리오",
-      category: "🎓 졸업작품 - R3F, 물리엔진, 전역 상태 관리",
-      description: "R3F를 사용해 게임과 같은 방향키 이동을 구현하며, 물리엔진을 통해 3D 공간에서의 물리력을 구현한 인터랙티브 포트폴리오. 특정 지역 진입 시 정보 표시, Recoil을 활용한 전역 상태 관리, 모델 최적화 및 텍스처 압축, 물리 엔진의 Static, Kinematic, Dynamic 활용.",
+      title: "졸업작품: AI 기반 답변 최적화 플랫폼",
+      category: "🎓 졸업작품 - AI, NLP, 웹 플랫폼",
+      description: "사용자의 질문에 대해 최적의 답변을 생성하고 제공하는 AI 기반 플랫폼. 자연어 처리 기술을 활용하여 질문을 분석하고, 다양한 AI 모델을 통합하여 정확하고 유용한 답변을 생성. 사용자 피드백을 학습하여 지속적으로 답변 품질을 개선하는 지능형 시스템.",
       period: "2025년 1학기",
-      role: "Full-Stack Developer",
-      technologies: ["React Three Fiber", "Three.js", "Cannon.js", "Recoil", "Blender", "GLTF Optimization"],
-      techCount: 6,
+      role: "Full-Stack Developer & AI Engineer",
+      technologies: ["Python", "React", "FastAPI", "OpenAI GPT", "NLP", "Machine Learning", "PostgreSQL", "Docker"],
+      techCount: 8,
       github: "https://github.com/CBNU-SW-1-11",
-      emoji: "🎮",
-      features: ["졸업작품", "3D Interactive"],
+      emoji: "🤖",
+      features: ["졸업작품", "AI Platform"],
       highlight: true
     },
     {
@@ -241,7 +241,7 @@ const Projects = () => {
             <h2 className="text-6xl font-bold text-gray-900">Featured Projects</h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 최신 졸업작품을 소개합니다
+            클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 AI 기반 답변 최적화 플랫폼 졸업작품을 소개합니다
           </p>
         </div>
 
@@ -249,7 +249,7 @@ const Projects = () => {
         <div className="mb-12">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold text-gray-900 mb-2">🎓 졸업작품</h3>
-            <p className="text-gray-600">React Three Fiber를 활용한 3D 인터랙티브 포트폴리오</p>
+            <p className="text-gray-600">AI와 자연어 처리 기술을 활용한 지능형 답변 최적화 플랫폼</p>
           </div>
           <div className="max-w-4xl mx-auto">
             <ProjectCard project={projects[0]} index={0} />
