@@ -79,12 +79,16 @@ const ProjectCard = ({ project, index }) => {
 
         {/* 기술 스택 */}
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-gray-700 mb-3">🛠️ 기술 스택</h4>
+          <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+            <span className="mr-2">🛠️</span>
+            기술 스택
+          </h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, techIndex) => (
               <span
                 key={techIndex}
-                className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-700"
+                className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 hover:from-gray-200 hover:to-gray-300 hover:scale-105 cursor-default"
+                style={{ animationDelay: `${techIndex * 0.1}s` }}
               >
                 {tech}
               </span>
