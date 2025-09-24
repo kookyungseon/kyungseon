@@ -27,7 +27,8 @@ const Hero = () => {
             안녕하세요, <span className="text-gradient">구경선</span>입니다.
           </h1>
           <p className="text-lg md:text-2xl text-gray-400 mb-12 animate-fade-up">
-            소프트웨어 & 지구환경과학 전공으로 <br /> 지속 가능한 미래를 만듭니다.
+            충북대학교 지구환경과학 & 소프트웨어 복수전공 <br /> 
+            클라우드·AI·데이터 전문성을 바탕으로 DX 혁신을 이끌어갑니다.
           </p>
           <div className="flex justify-center gap-6 animate-fade-up" style={{ animationDelay: "0.6s" }}>
             <a

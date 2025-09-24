@@ -75,51 +75,51 @@ const ProjectCard = ({ project }) => {
 const Projects = () => {
   const projects = [
     {
-      title: "지정주차 프로젝트",
-      category: "멀티 캠퍼스 융복합 프로젝트",
-      description: "IoT 기술을 이용한 주차 공간 관리 시스템 설계 및 구현",
-      technologies: ["IoT", "React", "Spring Boot"],
-      image: carImage, // import로 가져온 이미지
+      title: "AI 기반 차량 예약 확인 시스템 '타요타요'",
+      category: "멀티캠퍼스 융복합 프로젝트 - 최우수상",
+      description: "AWS 클라우드 환경에서 차량 이미지 업로드 → 번호판 인식 → 예약 정보 대조 → 문자 알림까지 자동화되는 파이프라인을 구축한 AI 기반 주차 관리 시스템",
+      technologies: ["AWS", "Route53", "RDS", "Lambda", "Auto Scaling", "Python", "AI"],
+      image: carImage,
       link: "https://github.com/kookyungseon/cloudproject_TayoTayo"
     },
     {
-      title: "여행지 추천 시스템",
-      category: "오픈소스 개발 프로젝트",
-      description: "지역별 여행지와 맛집을 추천하는 웹 애플리케이션. 사용자 맞춤형 추천 알고리즘 구현",
-      technologies: ["React", "Node.js", "MongoDB"],
-      image: tourImage, // 이미지 경로
-      link: "https://github.com/opensource-develop-project-2023/miwu"
-    },
-    {
-      title: "수질 환경 인식 개선 프로젝트",
-      category: "오픈소스 기초 프로젝트",
-      description: "수질 관련 퀴즈와 친환경 세제 인증 정보 제공 플랫폼",
-      technologies: ["Django", "Flutter", "PostgreSQL"],
-      image: waterImage, // 이미지 경로
-      link: "https://github.com/Eco-guardians/BOGGLE"
-    },
-    {
-      title: "원격진료 응급실 매칭",
-      category: "AI 오픈소스 전문 프로젝트",
-      description: "AI 챗봇 기반 원격진료 및 응급실 추천 시스템",
-      technologies: ["Android", "Firebase", "TensorFlow"],
-      image: hospitalImage, // 이미지 경로
-      link: "https://github.com/code-guhaejo/CodeBlack"
-    },
-    {
-      title: "AI를 이용한 알약 식별 프로젝트",
-      category: "ICT 충청 이노베이션 공모전",
-      description: "AI를 활용한 알약 식별 및, 처방전 촬영을 통한 복용 시간 알림 플랫폼",
-      technologies: ["Django", "Flutter", "AI"],
-      image: pillImage, // 이미지 경로
+      title: "AI OCR 기반 알약 식별 및 처방전 자동 인식 시스템",
+      category: "2024 ICT 충청권 이노베이션 공모전 - SW 개발 부문 최우수상",
+      description: "OCR 기반 처방전 인식 기능과 CNN 모델을 통한 알약 식별 기능을 구현하여 사용자 입력 최소화를 통한 의료 정보 처리 자동화를 달성",
+      technologies: ["Django", "Flutter", "OCR", "CNN", "AI", "Python"],
+      image: pillImage,
       link: "https://github.com/Algorithmstudy01/ict_ver2"
     },
     {
+      title: "LLM 기반 답변 최적화 플랫폼",
+      category: "졸업작품 프로젝트",
+      description: "Claude, Gemini, OpenAI API 등 다양한 모델을 동시에 호출하여 답변을 비교 분석하고, LangChain 기반 파이프라인으로 텍스트, 이미지, PDF, 영상 데이터를 통합 분석하는 채팅 시스템",
+      technologies: ["Python", "LangChain", "OpenAI API", "Claude", "Gemini", "FastAPI"],
+      image: hospitalImage,
+      link: "https://github.com/kookyungseon"
+    },
+    {
+      title: "PyTorch 오픈소스 문서 번역 및 품질 개선",
+      category: "2024 충북 오픈소스 컨트리뷰션 - 1위 최우수상",
+      description: "글로벌 개발자 커뮤니티와 협업하며 딥러닝 프레임워크 문서 번역·리뷰 수행 및 GitHub Pull Request를 통한 코드 및 문서 기여",
+      technologies: ["PyTorch", "GitHub", "Slack", "Documentation", "Deep Learning"],
+      image: tourImage,
+      link: "https://github.com/pytorch/pytorch"
+    },
+    {
+      title: "위기 상황 자동 녹음 앱 '안전한 목소리'",
+      category: "고용노동부 미래내일 일경험 지원사업",
+      description: "Flutter 기반 반응형 프론트엔드 개발 및 REST API 연동을 통한 사용자 편의성과 상황 대응성을 고려한 UX 개선",
+      technologies: ["Flutter", "Dart", "REST API", "UI/UX Design"],
+      image: waterImage,
+      link: "https://github.com/kookyungseon"
+    },
+    {
       title: "TCP/IP 소켓 프로그래밍을 활용한 '마피아 게임'",
-      category: "서버프로그래밍",
+      category: "서버프로그래밍 프로젝트",
       description: "TCP/IP 소켓 프로그래밍과 멀티스레드를 활용한 실시간 마피아 게임 서버 구현. 효율적인 스레드 관리를 위한 독자적 로직 설계로 안정적인 게임 플레이 제공",
       technologies: ["C", "Socket Programming", "Multi-Threading", "TCP/IP"],
-      image: mafiaImage , // 이미지 경로
+      image: mafiaImage,
       link: "https://github.com/kookyungseon/server_program"
     }
   ];

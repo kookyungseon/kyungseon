@@ -13,22 +13,35 @@ const Certifications = () => {
       name: "데이터분석 준전문가",
       code: "ADsP",
       description: "Advanced Data Analytics Semi-Professional",
-      date: "2024.11.29"
+      date: "2024.11.03"
     },
     {
       name: "빅데이터 분석기사",
       code: "BigData Analyst",
       description: "Big Data Analysis Specialist",
-      date: "2025.07.11"  // 예시 날짜
+      date: "2025.07.11"
+    },
+    {
+      name: "SQL 개발자",
+      code: "SQLD",
+      description: "SQL Developer",
+      date: "2025.09.19"
+    },
+    {
+      name: "토익스피킹",
+      code: "TOEIC Speaking",
+      description: "TOEIC Speaking Test",
+      date: "2025.09.01",
+      grade: "IM3"
     }
   ];
 
   const externalAwards = [
     {
-      title: "SW 개발 부문 최우수상",
+      title: "SW 개발 부문 최우수상 (2위)",
       competition: "2024 충청권 ICT 이노베이션 아이디어 및 SW 개발 공모전",
       organization: "세종테크노파크 원장상",
-      date: "2024"
+      date: "2024.09.11"
     }
   ];
 
@@ -37,19 +50,13 @@ const Certifications = () => {
       title: "2024년 충북 오픈소스 컨트리뷰션 최우수상 (1위)",
       competition: "충북 오픈소스 컨트리뷰션",
       organization: "충북대학교 SW중심대학사업단",
-      date: "2024.08.29 ~ 2024.09.09",
+      date: "2024.09.09",
     },
     {
-      title: "교과기반 프로젝트 영어발표회 우수상",
-      competition: "SW 프로젝트 영어발표회",
-      organization: "충북대학교 SW중심대학사업단",
-      date: "2024.07.03",
-    },
-    {
-      title: "다전공 체험수기 공모전 우수상",
-      competition: "다전공 체험수기 공모전",
-      organization: "충북대학교 교육처장",
-      date: "2024.12.31",
+      title: "융복합 프로젝트형 클라우드 서비스(MSA) 개발 최우수상",
+      competition: "멀티캠퍼스 융복합 프로젝트",
+      organization: "멀티캠퍼스",
+      date: "2023.02.16",
     }
   ];
 
@@ -70,7 +77,7 @@ const Certifications = () => {
                   <CheckCircle className="text-[#4A90E2] flex-shrink-0 mt-1" size={24} />
                   <div>
                     <h4 className="font-semibold text-xl text-gray-800">{cert.name}</h4>
-                    <p className="text-gray-600">{cert.code}</p>
+                    <p className="text-gray-600">{cert.code} {cert.grade && `- ${cert.grade}`}</p>
                     <p className="text-gray-500 text-sm mt-2">{cert.description}</p>
                     <p className="text-gray-600 text-sm mt-2">취득일: {cert.date}</p>
                   </div>
