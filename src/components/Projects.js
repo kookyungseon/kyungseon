@@ -8,31 +8,23 @@ const ProjectCard = ({ project, index }) => {
     <div
       className={`group relative bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden ${
         isHovered ? 'scale-[1.02] -translate-y-2' : 'scale-100'
-      } ${project.highlight ? 'ring-2 ring-gray-300 ring-opacity-50' : ''}`}
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 하이라이트 그라데이션 (졸업작품만) */}
-      {project.highlight && (
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-50"></div>
-      )}
       
       {/* 메인 콘텐츠 */}
       <div className="relative z-10 p-8">
         {/* 헤더 */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center space-x-4">
-            <div className={`p-4 rounded-2xl shadow-lg transition-all duration-300 ${
-              project.highlight ? 'bg-gradient-to-br from-gray-100 to-gray-200' : 'bg-gray-100'
-            }`}>
+            <div className="p-4 rounded-2xl shadow-lg transition-all duration-300 bg-gray-100">
               <span className="text-4xl">{project.emoji}</span>
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">{project.title}</h3>
               <div className="flex items-center space-x-2 flex-wrap">
-                <span className={`px-4 py-2 rounded-full text-sm font-medium ${
-                  project.highlight ? 'bg-gray-200 text-gray-800 border border-gray-300' : 'bg-gray-100 text-gray-700'
-                }`}>
+                <span className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
                   {project.category}
                 </span>
                 {project.award && (
@@ -92,9 +84,7 @@ const ProjectCard = ({ project, index }) => {
             {project.technologies.map((tech, techIndex) => (
               <span
                 key={techIndex}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                  project.highlight ? 'bg-gray-200 text-gray-800' : 'bg-gray-100 text-gray-700'
-                }`}
+                className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-700"
               >
                 {tech}
               </span>
@@ -119,9 +109,7 @@ const ProjectCard = ({ project, index }) => {
               {project.features.map((feature, featureIndex) => (
                 <span
                   key={featureIndex}
-                  className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    feature === '졸업작품' ? 'bg-gray-200 text-gray-800' : 'bg-gray-100 text-gray-600'
-                  }`}
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600"
                 >
                   {feature}
                 </span>
@@ -137,8 +125,8 @@ const ProjectCard = ({ project, index }) => {
 const Projects = () => {
   const projects = [
     {
-      title: "졸업작품: AI 기반 답변 최적화 플랫폼",
-      category: "🎓 졸업작품 - AI, NLP, 웹 플랫폼",
+      title: "AI 기반 답변 최적화 플랫폼",
+      category: "AI Platform Project",
       description: "사용자의 질문에 대해 최적의 답변을 생성하고 제공하는 AI 기반 플랫폼. 자연어 처리 기술을 활용하여 질문을 분석하고, 다양한 AI 모델을 통합하여 정확하고 유용한 답변을 생성. 사용자 피드백을 학습하여 지속적으로 답변 품질을 개선하는 지능형 시스템.",
       period: "2025년 1학기",
       role: "Full-Stack Developer & AI Engineer",
@@ -146,8 +134,7 @@ const Projects = () => {
       techCount: 8,
       github: "https://github.com/CBNU-SW-1-11",
       emoji: "🤖",
-      features: ["졸업작품", "AI Platform"],
-      highlight: true
+      features: ["Featured", "AI Platform"]
     },
     {
       title: "Designated Parking Management System",
@@ -241,29 +228,15 @@ const Projects = () => {
             <h2 className="text-6xl font-bold text-gray-900">Featured Projects</h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 AI 기반 답변 최적화 플랫폼 졸업작품을 소개합니다
+            클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 최신 AI 플랫폼을 소개합니다
           </p>
         </div>
 
-        {/* 졸업작품 하이라이트 */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">🎓 졸업작품</h3>
-            <p className="text-gray-600">AI와 자연어 처리 기술을 활용한 지능형 답변 최적화 플랫폼</p>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <ProjectCard project={projects[0]} index={0} />
-          </div>
-        </div>
-
-        {/* 기타 프로젝트들 */}
-        <div className="mb-8">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">💼 기타 프로젝트</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.slice(1).map((project, index) => (
-              <ProjectCard key={index + 1} project={project} index={index + 1} />
-            ))}
-          </div>
+        {/* 프로젝트 그리드 */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
         </div>
       </div>
     </section>
