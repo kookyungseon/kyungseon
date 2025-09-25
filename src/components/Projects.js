@@ -230,13 +230,25 @@ const Projects = () => {
       title: "Mafia Game (C Language)",
       category: "Game Development Project",
       description: "C언어로 구현한 콘솔 기반 마피아 게임. 멀티플레이어 게임 로직과 사용자 인터페이스를 구현하고, 게임 상태 관리와 플레이어 간 상호작용을 처리하는 시스템을 개발. 서버 프로그래밍 기법을 활용하여 안정적인 게임 서버를 구축.",
-      period: "3학년 1학기",
+      period: "4학년 2학기",
       role: "Server Programming & Game Logic Developer",
       technologies: ["C", "Server Programming", "Game Logic", "Multiplayer", "Console UI"],
       techCount: 5,
       github: "https://github.com/kookyungseon/server_program",
       emoji: "🎮",
       features: ["Featured", "Game Development"]
+    },
+    {
+      title: "Compiler Implementation",
+      category: "System Programming Project",
+      description: "충북대 컴파일러 최종과제로 구현한 컴파일러. 사칙연산(+, -, *, /) 및 제곱/세제곱 기능을 지원하는 수식 계산 컴파일러를 개발. Lex/Yacc를 활용한 구문 분석과 C언어 기반 코드 생성 과정을 구현하여 컴파일러의 전체 구조를 이해하고 실습한 프로젝트.",
+      period: "4학년 2학기",
+      role: "Compiler Developer",
+      technologies: ["C", "C++", "Lex", "Yacc", "M4", "Makefile", "Compiler Design"],
+      techCount: 7,
+      github: "https://github.com/kookyungseon/Compiler",
+      emoji: "⚙️",
+      features: ["Featured", "System Programming"]
     }
   ];
 
