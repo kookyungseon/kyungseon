@@ -96,14 +96,19 @@ const Certifications = () => {
   }, []);
 
   return (
-    <section id="certifications" className="py-24 px-6 bg-white">
+    <section id="certifications" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 text-black">🏅 Certifications & 🎖️ Achievements</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">🏅 Certifications & 🎖️ Achievements</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            데이터 전문성과 기술 역량을 인정받은 자격증 및 수상 경력
+          </p>
+        </div>
 
         {/* 자격증 섹션 */}
         <div className="mb-16">
-          <h3 className="text-3xl font-semibold text-black mb-8 flex items-center">
-            <CheckCircle className="text-black mr-3" size={28} /> 자격증
+          <h3 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center">
+            <CheckCircle className="text-[#96A78D] mr-3" size={24} /> 자격증
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
@@ -116,24 +121,24 @@ const Certifications = () => {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="bg-black border border-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="flex items-center mb-4">
-                    <div className="p-3 bg-white/10 rounded-lg mr-4">
-                      <cert.icon className="text-white" size={24} />
+                    <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
+                      <cert.icon className="text-[#96A78D]" size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-white">{cert.name}</h4>
-                      <p className="text-sm text-white/70">{cert.code}</p>
+                      <h4 className="text-lg font-semibold text-gray-900">{cert.name}</h4>
+                      <p className="text-sm text-[#96A78D]">{cert.code}</p>
                     </div>
                   </div>
-                  <p className="text-white/80 text-sm mb-3">{cert.description}</p>
-                  <div className="flex items-center text-white/60 text-xs">
+                  <p className="text-gray-600 text-sm mb-3">{cert.description}</p>
+                  <div className="flex items-center text-gray-500 text-xs">
                     <Calendar size={14} className="mr-1" />
                     {cert.date}
                     {cert.grade && (
                       <>
                         <span className="mx-2">•</span>
-                        <span className="font-medium text-white">{cert.grade}</span>
+                        <span className="font-medium text-[#96A78D]">{cert.grade}</span>
                       </>
                     )}
                   </div>
@@ -145,10 +150,10 @@ const Certifications = () => {
 
         {/* 수상내역 섹션 */}
         <div>
-          <h3 className="text-3xl font-semibold text-black mb-8 flex items-center">
-            <Trophy className="text-black mr-3" size={28} /> 수상내역
+          <h3 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center">
+            <Trophy className="text-[#96A78D] mr-3" size={24} /> 수상내역
           </h3>
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {externalAwards.map((award, index) => (
               <div
                 key={`ext-${index}`}
@@ -159,16 +164,16 @@ const Certifications = () => {
                 }`}
                 style={{ transitionDelay: `${(certifications.length + index) * 100}ms` }}
               >
-                <div className="bg-black border border-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="flex items-start">
-                    <div className="p-3 bg-white/10 rounded-lg mr-4">
-                      <award.icon className="text-white" size={24} />
+                    <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
+                      <award.icon className="text-[#96A78D]" size={24} />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-white mb-2">{award.title}</h4>
-                      <p className="text-white/80 mb-2">{award.competition}</p>
-                      <p className="text-white/60 text-sm mb-2">{award.organization}</p>
-                      <div className="flex items-center text-white/60 text-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{award.title}</h4>
+                      <p className="text-[#96A78D] mb-2 font-medium">{award.competition}</p>
+                      <p className="text-gray-600 text-sm mb-2">{award.organization}</p>
+                      <div className="flex items-center text-gray-500 text-sm">
                         <Calendar size={14} className="mr-1" />
                         {award.date}
                       </div>
@@ -187,16 +192,16 @@ const Certifications = () => {
                 }`}
                 style={{ transitionDelay: `${(certifications.length + externalAwards.length + index) * 100}ms` }}
               >
-                <div className="bg-black border border-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="flex items-start">
-                    <div className="p-3 bg-white/10 rounded-lg mr-4">
-                      <award.icon className="text-white" size={24} />
+                    <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
+                      <award.icon className="text-[#96A78D]" size={24} />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-white mb-2">{award.title}</h4>
-                      <p className="text-white/80 mb-2">{award.competition}</p>
-                      <p className="text-white/60 text-sm mb-2">{award.organization}</p>
-                      <div className="flex items-center text-white/60 text-sm">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{award.title}</h4>
+                      <p className="text-[#96A78D] mb-2 font-medium">{award.competition}</p>
+                      <p className="text-gray-600 text-sm mb-2">{award.organization}</p>
+                      <div className="flex items-center text-gray-500 text-sm">
                         <Calendar size={14} className="mr-1" />
                         {award.date}
                       </div>

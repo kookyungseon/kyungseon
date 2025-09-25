@@ -6,8 +6,8 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <div
-      className={`group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-lg hover:shadow-white/10 transition-all duration-500 overflow-hidden ${
-        isHovered ? 'scale-[1.02] -translate-y-2' : 'scale-100'
+      className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
+        isHovered ? 'scale-[1.02] -translate-y-1' : 'scale-100'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -216,22 +216,12 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 bg-black relative overflow-hidden">
-      {/* 배경 패턴 */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="projects" className="py-20 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
         {/* 헤더 */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center mb-6">
-            <div className="p-4 bg-white/10 rounded-2xl mr-4">
-              <span className="text-4xl">🚀</span>
-            </div>
-            <h2 className="text-6xl font-bold text-white">Featured Projects</h2>
-          </div>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">🚀 Featured Projects</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 최신 AI 플랫폼을 소개합니다
           </p>
         </div>
