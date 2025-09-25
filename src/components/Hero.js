@@ -50,7 +50,7 @@ const Hero = () => {
           </p>
 
           {/* 스킬 아이콘들 */}
-          <div className="flex justify-center items-center space-x-8 mb-8">
+          <div className="flex justify-center items-center space-x-6 mb-8 flex-wrap gap-4">
             <div className="text-center">
               <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
                 <span className="text-2xl">🤖</span>
@@ -68,6 +68,12 @@ const Hero = () => {
                 <span className="text-2xl">💻</span>
               </div>
               <span className="text-sm text-[#748DAE] font-medium">Development</span>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
+                <span className="text-2xl">☁️</span>
+              </div>
+              <span className="text-sm text-[#748DAE] font-medium">Cloud</span>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
