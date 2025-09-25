@@ -48,50 +48,43 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-24 px-6 bg-black">
+    <section id="education" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <BookOpen className="text-white mr-4" size={40} />
-            <h2 className="text-5xl md:text-6xl font-bold text-white">
-              🎓 Education
-            </h2>
-          </div>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            🎓 Education
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             지구환경과학과 소프트웨어학과 복수전공 및 클라우드 전문 교육 과정
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="grid md:grid-cols-2 gap-8">
           {educationData.map((edu, index) => (
-            <div key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-white/10 transition-all duration-300">
-              <div className="flex items-center mb-8">
-                <div className="p-4 bg-white/10 rounded-xl mr-6">
-                  <GraduationCap className="text-white" size={32} />
+            <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
+                  <GraduationCap className="text-[#96A78D]" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-white">{edu.school}</h3>
-                  <div className="flex items-center space-x-2 mt-2">
-                    <span className="px-3 py-1 bg-white/10 text-white rounded-full text-sm font-medium border border-white/20">
-                      {edu.logo}
-                    </span>
-                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">{edu.school}</h3>
+                  <span className="text-sm text-[#96A78D] font-medium">{edu.logo}</span>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
                 {edu.departments.map((dept, deptIndex) => (
-                  <div key={deptIndex} className="bg-white/5 rounded-xl p-6 border border-white/10">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-xl font-bold text-white">{dept.name}</h4>
+                  <div key={deptIndex} className="border-l-4 border-[#96A78D]/30 pl-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900">{dept.name}</h4>
                       <div className="flex items-center space-x-2">
-                        <Calendar className="text-white/60" size={16} />
-                        <span className="text-white/60 text-sm">{dept.period}</span>
+                        <Calendar className="text-gray-500" size={14} />
+                        <span className="text-gray-500 text-sm">{dept.period}</span>
                       </div>
                     </div>
                     
-                    <div className="mb-4">
-                      <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">
+                    <div className="mb-3">
+                      <span className="px-3 py-1 bg-[#96A78D]/10 text-[#96A78D] rounded-full text-sm font-medium">
                         {dept.status}
                       </span>
                     </div>
@@ -100,9 +93,9 @@ const Education = () => {
                       {dept.details.map((detail, detailIndex) => (
                         <li 
                           key={detailIndex} 
-                          className="text-white/80 flex items-start gap-2 text-sm"
+                          className="text-gray-600 flex items-start gap-2 text-sm"
                         >
-                          <span className="text-white/60 mt-1">•</span>
+                          <span className="text-[#96A78D] mt-1">•</span>
                           {detail}
                         </li>
                       ))}
