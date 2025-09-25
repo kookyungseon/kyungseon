@@ -48,43 +48,41 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 px-6 bg-white">
+    <section id="education" className="py-20 px-6 bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
-            Education
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <h2 className="text-4xl font-bold text-[#748DAE] mb-4">Education</h2>
+          <p className="text-lg text-[#748DAE] max-w-2xl mx-auto">
             지구환경과학과 소프트웨어학과 복수전공 및 클라우드 전문 교육 과정
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {educationData.map((edu, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-6">
-              <div className="flex items-center mb-4">
-                <div className="p-2 bg-gray-100 rounded-lg mr-3">
-                  <GraduationCap className="text-gray-600" size={20} />
+            <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8">
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-[#9ECAD6] rounded-lg mr-4">
+                  <GraduationCap className="text-white" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">{edu.school}</h3>
-                  <span className="text-sm text-gray-500">{edu.logo}</span>
+                  <h3 className="text-2xl font-bold text-[#748DAE]">{edu.school}</h3>
+                  <span className="text-sm text-[#9ECAD6] font-medium">{edu.logo}</span>
                 </div>
               </div>
 
               <div className="space-y-6">
                 {edu.departments.map((dept, deptIndex) => (
-                  <div key={deptIndex} className="border-l-4 border-[#96A78D]/30 pl-4">
+                  <div key={deptIndex} className="border-l-4 border-[#9ECAD6] pl-4">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900">{dept.name}</h4>
+                      <h4 className="text-lg font-semibold text-[#748DAE]">{dept.name}</h4>
                       <div className="flex items-center space-x-2">
-                        <Calendar className="text-gray-500" size={14} />
-                        <span className="text-gray-500 text-sm">{dept.period}</span>
+                        <Calendar className="text-[#9ECAD6]" size={14} />
+                        <span className="text-[#9ECAD6] text-sm">{dept.period}</span>
                       </div>
                     </div>
                     
                     <div className="mb-3">
-                      <span className="px-3 py-1 bg-[#96A78D]/10 text-[#96A78D] rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-[#9ECAD6]/20 text-[#748DAE] rounded-full text-sm font-medium">
                         {dept.status}
                       </span>
                     </div>
@@ -93,9 +91,9 @@ const Education = () => {
                       {dept.details.map((detail, detailIndex) => (
                         <li 
                           key={detailIndex} 
-                          className="text-gray-600 flex items-start gap-2 text-sm"
+                          className="text-[#748DAE] flex items-start gap-2 text-sm"
                         >
-                          <span className="text-[#96A78D] mt-1">•</span>
+                          <span className="text-[#9ECAD6] mt-1">•</span>
                           {detail}
                         </li>
                       ))}

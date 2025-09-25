@@ -96,19 +96,19 @@ const Certifications = () => {
   }, []);
 
   return (
-    <section id="certifications" className="py-20 px-6 bg-gray-50">
+    <section id="certifications" className="py-20 px-6 bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">🏅 Certifications & 🎖️ Achievements</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-[#748DAE] mb-4">🏅 Certifications & 🎖️ Achievements</h2>
+          <p className="text-lg text-[#748DAE] max-w-2xl mx-auto">
             데이터 전문성과 기술 역량을 인정받은 자격증 및 수상 경력
           </p>
         </div>
 
         {/* 자격증 섹션 */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center">
-            <CheckCircle className="text-[#96A78D] mr-3" size={24} /> 자격증
+          <h3 className="text-2xl font-semibold text-[#748DAE] mb-8 flex items-center">
+            <CheckCircle className="text-[#9ECAD6] mr-3" size={24} /> 자격증
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
@@ -123,22 +123,22 @@ const Certifications = () => {
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="flex items-center mb-4">
-                    <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
-                      <cert.icon className="text-[#96A78D]" size={24} />
+                    <div className="p-3 bg-[#9ECAD6]/20 rounded-lg mr-4">
+                      <cert.icon className="text-[#748DAE]" size={24} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900">{cert.name}</h4>
-                      <p className="text-sm text-[#96A78D]">{cert.code}</p>
+                      <h4 className="text-lg font-semibold text-[#748DAE]">{cert.name}</h4>
+                      <p className="text-sm text-[#9ECAD6]">{cert.code}</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mb-3">{cert.description}</p>
-                  <div className="flex items-center text-gray-500 text-xs">
+                  <p className="text-[#748DAE] text-sm mb-3">{cert.description}</p>
+                  <div className="flex items-center text-[#9ECAD6] text-xs">
                     <Calendar size={14} className="mr-1" />
                     {cert.date}
                     {cert.grade && (
                       <>
                         <span className="mx-2">•</span>
-                        <span className="font-medium text-[#96A78D]">{cert.grade}</span>
+                        <span className="font-medium text-[#9ECAD6]">{cert.grade}</span>
                       </>
                     )}
                   </div>
@@ -150,8 +150,8 @@ const Certifications = () => {
 
         {/* 수상내역 섹션 */}
         <div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center">
-            <Trophy className="text-[#96A78D] mr-3" size={24} /> 수상내역
+          <h3 className="text-2xl font-semibold text-[#748DAE] mb-8 flex items-center">
+            <Trophy className="text-[#9ECAD6] mr-3" size={24} /> 수상내역
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {externalAwards.map((award, index) => (
