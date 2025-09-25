@@ -6,15 +6,15 @@ const About = () => {
     <section id="about" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#748DAE] mb-4">About Me</h2>
-          <p className="text-xl text-[#9ECAD6] font-medium">AI Engineer & Data Scientist</p>
+          <h2 className="text-4xl font-bold text-[#2D3748] mb-4">About Me</h2>
+          <p className="text-xl text-[#4A5568] font-semibold">AI Engineer & Data Scientist</p>
         </div>
 
         {/* 중앙 정렬된 단일 컬럼 레이아웃 */}
         <div className="max-w-4xl mx-auto">
           {/* 메인 설명 */}
           <div className="text-center mb-12">
-            <p className="text-[#748DAE] text-xl leading-relaxed mb-8">
+            <p className="text-[#2D3748] text-xl leading-relaxed mb-8">
               데이터 분석과 인공지능 기술에 대한 깊은 관심을 바탕으로, 다양한 프로젝트를 통해 실무 경험을 쌓아왔습니다. 
               특히 컴퓨터 비전, 자연어 처리, 시계열 분석 분야에서 프로젝트를 수행하며 AI 기술의 실용적 적용에 집중하고 있습니다.
             </p>
@@ -24,28 +24,28 @@ const About = () => {
           <div className="flex justify-center mb-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center p-6 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3182CE] to-[#2B6CB0] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
                   <span className="text-2xl font-bold text-white">7+</span>
                 </div>
-                <div className="text-[#748DAE] font-medium">프로젝트</div>
+                <div className="text-[#2D3748] font-semibold">프로젝트</div>
               </div>
               <div className="text-center p-6 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#38A169] to-[#2F855A] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
                   <span className="text-2xl font-bold text-white">3</span>
                 </div>
-                <div className="text-[#748DAE] font-medium">수상 경력</div>
+                <div className="text-[#2D3748] font-semibold">수상 경력</div>
               </div>
               <div className="text-center p-6 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#D53F8C] to-[#B83280] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
                   <span className="text-2xl font-bold text-white">4</span>
                 </div>
-                <div className="text-[#748DAE] font-medium">자격증</div>
+                <div className="text-[#2D3748] font-semibold">자격증</div>
               </div>
               <div className="text-center p-6 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#805AD5] to-[#6B46C1] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
                   <span className="text-2xl font-bold text-white">2</span>
                 </div>
-                <div className="text-[#748DAE] font-medium">인턴십</div>
+                <div className="text-[#2D3748] font-semibold">인턴십</div>
               </div>
             </div>
           </div>
