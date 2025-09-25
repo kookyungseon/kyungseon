@@ -28,9 +28,9 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#748DAE] mb-4">Contact</h2>
           <p className="text-xl text-[#9ECAD6] font-medium">Let's Connect!</p>
-          <p className="text-lg text-[#748DAE] mt-4 max-w-2xl mx-auto">
-            AI와 데이터 사이언스 분야에서 함께 일하고 싶으시거나, 프로젝트에 대해 더 자세히 알고 싶으시다면 언제든 연락주세요.
-          </p>
+                <p className="text-lg text-[#748DAE] mt-4 max-w-2xl mx-auto">
+                  AI, 데이터 사이언스, 클라우드 인프라 분야에서 함께 일하고 싶으시거나, 프로젝트에 대해 더 자세히 알고 싶으시다면 언제든 연락주세요.
+                </p>
         </div>
 
         {/* 중앙 정렬된 단일 컬럼 레이아웃 */}

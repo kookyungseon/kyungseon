@@ -143,7 +143,7 @@ const Projects = () => {
   const projects = [
     {
       title: "멀티모달 질의응답 에이전트",
-      category: "AI/ML Project",
+      category: "AI/ML 프로젝트",
       description: "텍스트, 이미지, 영상, PDF 데이터를 통합 분석하는 멀티모달 AI 시스템. OpenAI, YOLOv8, BLIP 등 여러 AI 모델을 Django 기반 백엔드 위에 오케스트레이션하여 구현. 비동기 큐, 타임아웃, 풀백 로직을 설계하여 모델 지연과 오류를 해결하고, 업로드된 문서에서 주요 수치를 추출하고 이미지 속 차트를 인식하여 설명하는 기능까지 구현.",
       period: "2024년 2학기",
       role: "Full-Stack Developer & AI Engineer",
@@ -154,8 +154,8 @@ const Projects = () => {
       features: ["Featured", "AI/ML", "Multimodal"]
     },
     {
-      title: "Designated Parking Management System",
-      category: "Cloud, Big Data, IoT Project",
+      title: "개인 주차 공간 관리 시스템",
+      category: "클라우드, 빅데이터, IoT 프로젝트",
       description: "개인 주차 공간 공유를 통한 주차 공간 부족 문제 해결을 위한 반응형 웹 애플리케이션. AWS 클라우드 환경에서 오토스케일링, 로드밸런싱, RDS 다중 가용성을 적용하여 확장성과 안정성을 확보하고, Lambda와 AI 모델을 연동하여 자동화 기능을 구현한 클라우드 네이티브 시스템.",
       period: "Aug 2022 – Feb 2023 (6개월)",
       role: "Cloud & Backend Developer",
@@ -166,8 +166,8 @@ const Projects = () => {
       features: ["Featured", "Cloud", "Backend"]
     },
     {
-      title: "Travel Destination Recommendation System",
-      category: "Open Source Development Project",
+      title: "여행지 추천 시스템",
+      category: "오픈소스 개발 프로젝트",
       description: "지역별 여행지 및 맛집 추천 웹 애플리케이션",
       period: "3학년 2학기",
       role: "Front-end (React)",
@@ -178,8 +178,8 @@ const Projects = () => {
       features: ["Featured", "Full Stack"]
     },
     {
-      title: "Environmental Awareness Improvement (Water Quality)",
-      category: "Open Source Basic Project",
+      title: "환경 인식 개선 (수질 관리)",
+      category: "오픈소스 기초 프로젝트",
       description: "친환경 세제 인증, 물 관련 퀴즈, 오염된 우수관 신고 기능 제공",
       period: "4학년 1학기",
       role: "Django + DB Management / API 활용 / Front-end (Flutter)",
@@ -190,8 +190,8 @@ const Projects = () => {
       features: ["Featured", "Full Stack"]
     },
     {
-      title: "Telemedicine and Emergency Room Matching AI",
-      category: "Open Source Professional Project",
+      title: "원격의료 및 응급실 매칭 AI",
+      category: "오픈소스 전문 프로젝트",
       description: "응급실 문제 해결을 위한 AI 챗봇 기반 원격의료 및 응급실 추천 앱",
       period: "4학년 1학기",
       role: "Front-end (XML)",
@@ -202,8 +202,8 @@ const Projects = () => {
       features: ["Featured", "Full Stack"]
     },
     {
-      title: "Pill Recognition and Management App",
-      category: "AI/ML Project",
+      title: "알약 인식 및 관리 앱",
+      category: "AI/ML 프로젝트",
       description: "사진 업로드 및 이미지 인식을 통한 알약 정보 및 복약 관리 앱",
       period: "Aug 2024 – Oct 2024 (3개월)",
       role: "Django + DB Management / 알약 인식 모델 개발",
@@ -215,8 +215,8 @@ const Projects = () => {
       features: ["Featured", "Full Stack"]
     },
     {
-      title: "Smart Window Project IoT Ventilation System",
-      category: "IoT Ventilation System",
+      title: "스마트 창문 IoT 환기 시스템",
+      category: "IoT 환기 시스템",
       description: "IoT 센서를 활용한 공기질, 온도, 습도 기반 자동 창문 개폐 시스템",
       period: "4학년 3학기",
       role: "Backend API 개발 / 공공데이터 포털 API 연결 / Raspberry Pi 통신",
@@ -227,8 +227,8 @@ const Projects = () => {
       features: ["Featured", "Full Stack"]
     },
     {
-      title: "Mafia Game (C Language)",
-      category: "Game Development Project",
+      title: "마피아 게임 (C언어)",
+      category: "게임 개발 프로젝트",
       description: "C언어로 구현한 콘솔 기반 마피아 게임. 멀티플레이어 게임 로직과 사용자 인터페이스를 구현하고, 게임 상태 관리와 플레이어 간 상호작용을 처리하는 시스템을 개발. 서버 프로그래밍 기법을 활용하여 안정적인 게임 서버를 구축.",
       period: "4학년 2학기",
       role: "Server Programming & Game Logic Developer",
@@ -239,8 +239,8 @@ const Projects = () => {
       features: ["Featured", "Game Development"]
     },
     {
-      title: "Compiler Implementation",
-      category: "System Programming Project",
+      title: "컴파일러 구현",
+      category: "시스템 프로그래밍 프로젝트",
       description: "충북대 컴파일러 최종과제로 구현한 컴파일러. 사칙연산(+, -, *, /) 및 제곱/세제곱 기능을 지원하는 수식 계산 컴파일러를 개발. Lex/Yacc를 활용한 구문 분석과 C언어 기반 코드 생성 과정을 구현하여 컴파일러의 전체 구조를 이해하고 실습한 프로젝트.",
       period: "4학년 2학기",
       role: "Compiler Developer",
