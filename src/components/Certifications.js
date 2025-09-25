@@ -96,7 +96,7 @@ const Certifications = () => {
   }, []);
 
   return (
-    <section id="certifications" className="py-20 px-6 bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB]">
+    <section id="certifications" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#748DAE] mb-4">🏅 Certifications & 🎖️ Achievements</h2>

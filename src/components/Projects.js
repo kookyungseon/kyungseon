@@ -214,7 +214,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB]">
+    <section id="projects" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* 헤더 */}
         <div className="text-center mb-16">

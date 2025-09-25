@@ -35,7 +35,7 @@ const PortfolioMain = () => {
           <Contact />
         </div>
       </main>
-      <footer className="bg-gradient-to-r from-[#FFEAEA] to-[#F5CBCB] py-8 text-center">
+      <footer className="bg-white py-8 text-center border-t border-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex justify-center items-center space-x-8 mb-4">
             <a href="mailto:koo0685@naver.com" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors">

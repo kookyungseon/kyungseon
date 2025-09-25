@@ -22,7 +22,7 @@ const Hero = () => {
   }, [showContent, words.length]);
 
   return (
-    <header className="relative w-full min-h-screen bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB] flex items-center justify-center py-20">
+    <header className="relative w-full min-h-screen bg-white flex items-center justify-center py-20">
       {/* 메인 콘텐츠 */}
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="text-center">
