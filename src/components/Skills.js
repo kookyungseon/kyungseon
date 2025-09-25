@@ -62,9 +62,16 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 shadow-lg">
+            <div key={index} className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+              index % 2 === 0 ? 'transform hover:-rotate-1' : 'transform hover:rotate-1'
+            }`}>
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className={`w-16 h-16 ${
+                  index % 4 === 0 ? 'bg-gradient-to-br from-[#9ECAD6] to-[#748DAE]' :
+                  index % 4 === 1 ? 'bg-gradient-to-br from-[#748DAE] to-[#9ECAD6]' :
+                  index % 4 === 2 ? 'bg-gradient-to-br from-[#F5CBCB] to-[#9ECAD6]' :
+                  'bg-gradient-to-br from-[#9ECAD6] to-[#F5CBCB]'
+                } rounded-full flex items-center justify-center mx-auto mb-3`}>
                   <span className="text-2xl">{category.icon}</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#748DAE]">{category.title}</h3>
@@ -72,16 +79,21 @@ const Skills = () => {
               
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
+                  <div key={skillIndex} className="group">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-[#748DAE] font-medium">{skill.name}</span>
-                      <span className="text-[#748DAE] text-sm">{skill.level}%</span>
+                      <span className="text-[#748DAE] font-medium group-hover:text-[#9ECAD6] transition-colors">{skill.name}</span>
+                      <span className="text-[#748DAE] text-sm font-bold">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="relative w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                       <div 
-                        className="bg-gradient-to-r from-[#9ECAD6] to-[#748DAE] h-2 rounded-full transition-all duration-1000"
+                        className={`h-3 rounded-full transition-all duration-1000 ${
+                          skillIndex % 3 === 0 ? 'bg-gradient-to-r from-[#9ECAD6] to-[#748DAE]' :
+                          skillIndex % 3 === 1 ? 'bg-gradient-to-r from-[#748DAE] to-[#9ECAD6]' :
+                          'bg-gradient-to-r from-[#F5CBCB] to-[#9ECAD6]'
+                        }`}
                         style={{ width: `${skill.level}%` }}
                       ></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
                     </div>
                   </div>
                 ))}

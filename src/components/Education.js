@@ -57,52 +57,71 @@ const Education = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {educationData.map((edu, index) => (
-            <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-[#9ECAD6] rounded-lg mr-4">
-                  <GraduationCap className="text-white" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-[#748DAE]">{edu.school}</h3>
-                  <span className="text-sm text-[#9ECAD6] font-medium">{edu.logo}</span>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                {edu.departments.map((dept, deptIndex) => (
-                  <div key={deptIndex} className="border-l-4 border-[#9ECAD6] pl-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-[#748DAE]">{dept.name}</h4>
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="text-[#9ECAD6]" size={14} />
-                        <span className="text-[#9ECAD6] text-sm">{dept.period}</span>
+        {/* 타임라인 스타일 */}
+        <div className="relative">
+          {/* 중앙 라인 */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#9ECAD6] to-[#748DAE] rounded-full"></div>
+          
+          <div className="space-y-12">
+            {educationData.map((edu, index) => (
+              <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                {/* 왼쪽/오른쪽 콘텐츠 */}
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 bg-[#9ECAD6] rounded-lg mr-4">
+                        <GraduationCap className="text-white" size={24} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-[#748DAE]">{edu.school}</h3>
+                        <span className="text-sm text-[#9ECAD6] font-medium">{edu.logo}</span>
                       </div>
                     </div>
-                    
-                    <div className="mb-3">
-                      <span className="px-3 py-1 bg-[#9ECAD6]/20 text-[#748DAE] rounded-full text-sm font-medium">
-                        {dept.status}
-                      </span>
-                    </div>
 
-                    <ul className="space-y-2">
-                      {dept.details.map((detail, detailIndex) => (
-                        <li 
-                          key={detailIndex} 
-                          className="text-[#748DAE] flex items-start gap-2 text-sm"
-                        >
-                          <span className="text-[#9ECAD6] mt-1">•</span>
-                          {detail}
-                        </li>
+                    <div className="space-y-4">
+                      {edu.departments.map((dept, deptIndex) => (
+                        <div key={deptIndex} className="border-l-4 border-[#9ECAD6] pl-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="text-lg font-semibold text-[#748DAE]">{dept.name}</h4>
+                            <div className="flex items-center space-x-2">
+                              <Calendar className="text-[#9ECAD6]" size={14} />
+                              <span className="text-[#9ECAD6] text-sm">{dept.period}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="mb-2">
+                            <span className="px-3 py-1 bg-[#9ECAD6]/20 text-[#748DAE] rounded-full text-sm font-medium">
+                              {dept.status}
+                            </span>
+                          </div>
+
+                          <ul className="space-y-1">
+                            {dept.details.map((detail, detailIndex) => (
+                              <li 
+                                key={detailIndex} 
+                                className="text-[#748DAE] flex items-start gap-2 text-sm"
+                              >
+                                <span className="text-[#9ECAD6] mt-1">•</span>
+                                {detail}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                ))}
+                </div>
+
+                {/* 중앙 노드 */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className="w-6 h-6 bg-[#9ECAD6] rounded-full border-4 border-white shadow-lg"></div>
+                </div>
+
+                {/* 빈 공간 */}
+                <div className="w-1/2"></div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

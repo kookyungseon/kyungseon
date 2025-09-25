@@ -3,10 +3,25 @@ import { Github, ExternalLink, ArrowRight, Calendar, User, Wrench } from "lucide
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  
+  // 다양한 카드 스타일을 위한 클래스
+  const cardStyles = [
+    'bg-gradient-to-br from-white to-gray-50', // 기본
+    'bg-gradient-to-br from-[#9ECAD6]/5 to-white', // 연한 블루
+    'bg-gradient-to-br from-white to-[#748DAE]/5', // 연한 진한 블루
+    'bg-gradient-to-br from-[#F5CBCB]/10 to-white', // 연한 핑크
+  ];
+  
+  const borderStyles = [
+    'border-0', // 기본
+    'border-l-4 border-[#9ECAD6]', // 왼쪽 보더
+    'border-t-4 border-[#748DAE]', // 위쪽 보더
+    'border-2 border-[#9ECAD6]/30', // 전체 보더
+  ];
 
   return (
     <div
-      className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
+      className={`group relative ${cardStyles[index % cardStyles.length]} ${borderStyles[index % borderStyles.length]} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
         isHovered ? 'scale-[1.02] -translate-y-1' : 'scale-100'
       }`}
       onMouseEnter={() => setIsHovered(true)}
@@ -224,10 +239,12 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* 프로젝트 그리드 */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* 프로젝트 그리드 - Masonry 스타일 */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <div key={index} className="break-inside-avoid">
+              <ProjectCard project={project} index={index} />
+            </div>
           ))}
         </div>
       </div>

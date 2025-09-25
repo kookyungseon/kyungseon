@@ -22,9 +22,16 @@ const Hero = () => {
   }, [showContent, words.length]);
 
   return (
-    <header className="relative w-full min-h-screen bg-white flex items-center justify-center py-20">
+    <header className="relative w-full min-h-screen bg-gradient-to-br from-white via-gray-50 to-white flex items-center justify-center py-20 overflow-hidden">
+      {/* 배경 장식 요소 */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#9ECAD6]/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#748DAE]/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-[#F5CBCB]/20 rounded-full blur-lg"></div>
+      </div>
+      
       {/* 메인 콘텐츠 */}
-      <div className="max-w-6xl mx-auto px-6 w-full">
+      <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
         <div className="text-center">
           {/* 네비게이션 */}
           <nav className="mb-16">
