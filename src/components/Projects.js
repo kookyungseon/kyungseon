@@ -149,45 +149,21 @@ const Projects = () => {
       role: "Full-Stack Developer & AI Engineer",
       technologies: ["Django", "OpenAI", "YOLOv8", "BLIP", "Python", "PostgreSQL", "Redis", "Celery"],
       techCount: 8,
-      github: "https://github.com/kookyungseon/multimodal-qa-agent",
+      github: "https://github.com/CBNU-SW-1-11",
       emoji: "🧠",
       features: ["Featured", "AI/ML", "Multimodal"]
     },
     {
-      title: "AI 기반 답변 최적화 플랫폼",
-      category: "AI Platform Project",
-      description: "사용자의 질문에 대해 최적의 답변을 생성하고 제공하는 AI 기반 플랫폼. 자연어 처리 기술을 활용하여 질문을 분석하고, 다양한 AI 모델을 통합하여 정확하고 유용한 답변을 생성. 사용자 피드백을 학습하여 지속적으로 답변 품질을 개선하는 지능형 시스템.",
-      period: "2025년 1학기",
-      role: "Full-Stack Developer & AI Engineer",
-      technologies: ["Python", "React", "FastAPI", "OpenAI GPT", "NLP", "Machine Learning", "PostgreSQL", "Docker"],
-      techCount: 8,
-      github: "https://github.com/CBNU-SW-1-11",
-      emoji: "🤖",
-      features: ["Featured", "AI Platform"]
-    },
-    {
-      title: "AWS 기반 차량 예약 확인 시스템",
-      category: "Cloud & Backend Project",
-      description: "오토스케일링, 로드밸런싱, RDS 다중 가용성을 적용하여 확장성과 안정성을 확보한 차량 예약 시스템. Lambda와 AI 모델을 연동하여 자동화 기능을 구현하고, 클라우드 네이티브 아키텍처를 통해 고가용성과 확장성을 보장하는 시스템을 개발.",
-      period: "2023년 2학기",
-      role: "Cloud & Backend Developer",
-      technologies: ["AWS", "Lambda", "RDS", "EC2", "S3", "CloudFormation", "Python", "Django"],
-      techCount: 8,
-      github: "https://github.com/kookyungseon/vehicle-booking-system",
-      emoji: "🚗",
-      features: ["Featured", "Cloud", "Backend"]
-    },
-    {
       title: "Designated Parking Management System",
       category: "Cloud, Big Data, IoT Project",
-      description: "개인 주차 공간 공유를 통한 주차 공간 부족 문제 해결을 위한 반응형 웹 애플리케이션",
+      description: "개인 주차 공간 공유를 통한 주차 공간 부족 문제 해결을 위한 반응형 웹 애플리케이션. AWS 클라우드 환경에서 오토스케일링, 로드밸런싱, RDS 다중 가용성을 적용하여 확장성과 안정성을 확보하고, Lambda와 AI 모델을 연동하여 자동화 기능을 구현한 클라우드 네이티브 시스템.",
       period: "Aug 2022 – Feb 2023 (6개월)",
-      role: "Cloud / Front-end (HTML, CSS)",
-      technologies: ["MSA", "Cloud Services", "HTML", "CSS"],
-      techCount: 4,
+      role: "Cloud & Backend Developer",
+      technologies: ["AWS", "Lambda", "RDS", "EC2", "S3", "MSA", "Python", "Django"],
+      techCount: 8,
       github: "https://github.com/kookyungseon/cloudproject_TayoTayo",
       emoji: "🅿️",
-      features: ["Featured", "Full Stack"]
+      features: ["Featured", "Cloud", "Backend"]
     },
     {
       title: "Travel Destination Recommendation System",
