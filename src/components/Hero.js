@@ -26,58 +26,58 @@ const Hero = () => {
       {/* 메인 콘텐츠 */}
       <div className="max-w-4xl mx-auto px-6 w-full">
         {/* 메인 카드 */}
-        <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 p-12 text-center">
+        <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-8 text-center">
           {/* 프로필 이미지 */}
-          <div className="mb-8 flex justify-center">
-            <div className="w-32 h-32 bg-gradient-to-br from-[#96A78D] to-[#B6CEB4] rounded-full flex items-center justify-center shadow-lg">
-              <Code className="text-white" size={48} />
+          <div className="mb-6 flex justify-center">
+            <div className="w-24 h-24 bg-[#96A78D] rounded-full flex items-center justify-center">
+              <Code className="text-white" size={32} />
             </div>
           </div>
 
           {/* 메인 타이틀 */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            안녕하세요, 구경선입니다
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            구경선
           </h1>
           
           {/* 서브타이틀 */}
-          <div className="text-xl text-[#96A78D] font-medium mb-8">
+          <div className="text-lg text-[#96A78D] font-medium mb-4">
             {words[currentWord]}
           </div>
 
           {/* 설명 */}
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base mb-6 max-w-xl mx-auto">
             충북대학교 지구환경과학 & 소프트웨어 복수전공
           </p>
 
           {/* 스킬 태그 */}
-          <div className="flex justify-center items-center space-x-4 mb-8">
-            <span className="px-4 py-2 bg-[#96A78D]/10 text-[#96A78D] rounded-full text-sm font-medium">
+          <div className="flex justify-center items-center space-x-3 mb-6">
+            <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
               Cloud
             </span>
-            <span className="px-4 py-2 bg-[#96A78D]/10 text-[#96A78D] rounded-full text-sm font-medium">
+            <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
               Data
             </span>
-            <span className="px-4 py-2 bg-[#96A78D]/10 text-[#96A78D] rounded-full text-sm font-medium">
+            <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
               AI
             </span>
           </div>
 
           {/* CTA 버튼들 */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a
               href="mailto:koo0685@naver.com"
-              className="inline-flex items-center justify-center px-8 py-3 bg-[#96A78D] text-white rounded-lg hover:bg-[#96A78D]/90 transition-colors font-medium"
+              className="inline-flex items-center justify-center px-6 py-2 bg-[#96A78D] text-white rounded-lg hover:bg-[#96A78D]/90 transition-colors text-sm font-medium"
             >
-              <Mail size={20} className="mr-2" />
+              <Mail size={16} className="mr-2" />
               이메일 보내기
             </a>
             <a
               href="https://github.com/kookyungseon"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 border border-[#96A78D] text-[#96A78D] rounded-lg hover:bg-[#96A78D] hover:text-white transition-colors font-medium"
+              className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
             >
-              <Github size={20} className="mr-2" />
+              <Github size={16} className="mr-2" />
               깃허브
             </a>
           </div>

@@ -50,25 +50,25 @@ const Education = () => {
   return (
     <section id="education" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            🎓 Education
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            Education
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-xl mx-auto">
             지구환경과학과 소프트웨어학과 복수전공 및 클라우드 전문 교육 과정
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {educationData.map((edu, index) => (
-            <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8">
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
-                  <GraduationCap className="text-[#96A78D]" size={24} />
+            <div key={index} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-6">
+              <div className="flex items-center mb-4">
+                <div className="p-2 bg-gray-100 rounded-lg mr-3">
+                  <GraduationCap className="text-gray-600" size={20} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{edu.school}</h3>
-                  <span className="text-sm text-[#96A78D] font-medium">{edu.logo}</span>
+                  <h3 className="text-xl font-bold text-gray-900">{edu.school}</h3>
+                  <span className="text-sm text-gray-500">{edu.logo}</span>
                 </div>
               </div>
 
