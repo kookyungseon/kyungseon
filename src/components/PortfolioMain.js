@@ -35,13 +35,42 @@ const PortfolioMain = () => {
             {/* 네비게이션 메뉴 */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#about" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">About</a>
+              <a href="#education" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Education</a>
               <a href="#projects" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Projects</a>
               <a href="#skills" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Skills</a>
               <a href="#certifications" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Awards</a>
               <a href="#contact" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Contact</a>
             </div>
+
+            {/* 모바일 메뉴 버튼 */}
+            <button
+              className="md:hidden text-[#748DAE] hover:text-[#9ECAD6] transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* 모바일 메뉴 드롭다운 */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+            <div className="px-6 py-4 space-y-4">
+              <a href="#about" className="block text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>About</a>
+              <a href="#education" className="block text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>Education</a>
+              <a href="#projects" className="block text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>Projects</a>
+              <a href="#skills" className="block text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>Skills</a>
+              <a href="#certifications" className="block text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>Awards</a>
+              <a href="#contact" className="block text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            </div>
+          </div>
+        )}
       </nav>
       
       <Hero />

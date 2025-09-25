@@ -55,18 +55,20 @@ const ProjectCard = ({ project, index }) => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-[#9ECAD6]/20 hover:bg-[#9ECAD6]/30 rounded-lg transition-all duration-300 hover:scale-110"
+              className="p-2 bg-[#3182CE]/20 hover:bg-[#3182CE]/30 rounded-lg transition-all duration-300 hover:scale-110"
+              title="GitHub Repository"
             >
-              <Github size={18} className="text-[#748DAE]" />
+              <Github size={18} className="text-[#2D3748]" />
             </a>
             {project.demo && (
               <a
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-[#9ECAD6]/20 hover:bg-[#9ECAD6]/30 rounded-lg transition-all duration-300 hover:scale-110"
+                className="p-2 bg-[#38A169]/20 hover:bg-[#38A169]/30 rounded-lg transition-all duration-300 hover:scale-110"
+                title="Live Demo"
               >
-                <ExternalLink size={18} className="text-[#748DAE]" />
+                <ExternalLink size={18} className="text-[#2D3748]" />
               </a>
             )}
           </div>
@@ -150,6 +152,7 @@ const Projects = () => {
       technologies: ["Django", "OpenAI", "YOLOv8", "BLIP", "Python", "PostgreSQL", "Redis", "Celery"],
       techCount: 8,
       github: "https://github.com/CBNU-SW-1-11",
+      demo: "https://multimodal-qa-demo.vercel.app",
       emoji: "🧠",
       features: ["Featured", "AI/ML", "Multimodal"]
     },

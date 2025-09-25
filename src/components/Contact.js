@@ -18,8 +18,24 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 폼 제출 로직
-    console.log('Form submitted:', formData);
+    
+    // 이메일 링크로 폼 데이터 전송
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `이름: ${formData.name}\n이메일: ${formData.email}\n\n메시지:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:koo0685@naver.com?subject=${subject}&body=${body}`;
+    
+    // 폼 초기화
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+    
+    alert('이메일 클라이언트가 열렸습니다. 메시지를 작성하고 전송해주세요!');
   };
 
   return (

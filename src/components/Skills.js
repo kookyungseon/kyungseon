@@ -8,22 +8,10 @@ const Skills = () => {
       skills: [
         { name: "Python", level: 90 },
         { name: "PyTorch", level: 85 },
-        { name: "TensorFlow", level: 80 },
+        { name: "YOLOv8", level: 85 },
         { name: "OpenCV", level: 85 },
-        { name: "Scikit-learn", level: 85 },
-        { name: "Pandas", level: 90 }
-      ]
-    },
-    {
-      title: "Data Analysis",
-      icon: "📊",
-      skills: [
-        { name: "NumPy", level: 85 },
-        { name: "Matplotlib", level: 80 },
-        { name: "Seaborn", level: 75 },
-        { name: "SQL", level: 90 },
-        { name: "R", level: 75 },
-        { name: "Statistics", level: 80 }
+        { name: "OpenAI", level: 80 },
+        { name: "CNN", level: 85 }
       ]
     },
     {
@@ -31,22 +19,34 @@ const Skills = () => {
       icon: "💻",
       skills: [
         { name: "React", level: 80 },
-        { name: "Django", level: 80 },
+        { name: "Django", level: 85 },
         { name: "FastAPI", level: 85 },
-        { name: "Node.js", level: 75 },
-        { name: "MySQL", level: 85 },
-        { name: "JavaScript", level: 80 }
+        { name: "JavaScript", level: 80 },
+        { name: "HTML/CSS", level: 85 },
+        { name: "Flutter", level: 75 }
       ]
     },
     {
-      title: "Tools & Others",
-      icon: "🛠️",
+      title: "Cloud & Backend",
+      icon: "☁️",
       skills: [
-        { name: "Git", level: 80 },
-        { name: "Docker", level: 70 },
+        { name: "AWS", level: 80 },
+        { name: "Docker", level: 75 },
+        { name: "MySQL", level: 85 },
+        { name: "PostgreSQL", level: 80 },
+        { name: "Redis", level: 70 },
+        { name: "Lambda", level: 75 }
+      ]
+    },
+    {
+      title: "System Programming",
+      icon: "⚙️",
+      skills: [
+        { name: "C", level: 80 },
+        { name: "C++", level: 75 },
+        { name: "Lex/Yacc", level: 70 },
+        { name: "Git", level: 85 },
         { name: "Linux", level: 75 },
-        { name: "AWS", level: 70 },
-        { name: "FTP", level: 75 },
         { name: "API", level: 85 }
       ]
     }
