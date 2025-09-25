@@ -110,7 +110,7 @@ const Certifications = () => {
           <h3 className="text-2xl font-semibold text-[#748DAE] mb-8 flex items-center">
             <CheckCircle className="text-[#9ECAD6] mr-3" size={24} /> 자격증
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
               <div
                 key={index}

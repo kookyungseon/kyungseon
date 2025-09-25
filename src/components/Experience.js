@@ -86,67 +86,78 @@ const Experience = () => {
             다양한 프로젝트와 교육 과정을 통해 쌓은 실무 경험과 전문성
           </p>
         </div>
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              ref={(el) => (cardRefs.current[index] = el)}
-              data-index={index}
-              className={`transform transition-all duration-700 ease-out ${
-                visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 bg-[#9ECAD6]/20 rounded-lg">
-                      <exp.icon className="text-[#748DAE]" size={24} />
+        {/* 스테핑 스톤 레이아웃 */}
+        <div className="relative">
+          {/* 중앙 라인 */}
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#9ECAD6] to-[#748DAE] rounded-full"></div>
+          
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                ref={(el) => (cardRefs.current[index] = el)}
+                data-index={index}
+                className={`relative flex items-start transform transition-all duration-700 ease-out ${
+                  visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* 왼쪽 노드 */}
+                <div className="relative z-10 flex-shrink-0 mr-8">
+                  <div className="w-16 h-16 bg-[#9ECAD6] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                    <exp.icon className="text-white" size={24} />
+                  </div>
+                </div>
+                
+                {/* 오른쪽 콘텐츠 */}
+                <div className="flex-1">
+                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <h3 className="text-2xl font-bold text-[#748DAE]">{exp.company}</h3>
+                        <p className="text-lg text-[#9ECAD6] font-medium">{exp.position}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="flex items-center space-x-2 text-[#9ECAD6] mb-2">
+                          <Calendar size={16} />
+                          <span className="text-sm">{exp.period}</span>
+                        </div>
+                        <div className="flex items-center space-x-2 text-[#9ECAD6]">
+                          <MapPin size={16} />
+                          <span className="text-sm">{exp.location}</span>
+                        </div>
+                      </div>
                     </div>
+
+                    <p className="text-[#748DAE] mb-6 text-lg">{exp.description}</p>
+
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold text-[#748DAE] mb-3">주요 성과</h4>
+                      <ul className="space-y-2">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start text-[#748DAE]">
+                            <CheckCircle size={18} className="text-[#9ECAD6] mr-2 flex-shrink-0 mt-1" />
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
                     <div>
-                      <h3 className="text-2xl font-bold text-[#748DAE]">{exp.company}</h3>
-                      <p className="text-lg text-[#9ECAD6] font-medium">{exp.position}</p>
+                      <h4 className="text-lg font-semibold text-[#748DAE] mb-3">사용 기술</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 bg-[#9ECAD6]/20 text-[#748DAE] rounded-full text-sm font-medium">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="flex items-center space-x-2 text-[#9ECAD6] mb-2">
-                      <Calendar size={16} />
-                      <span className="text-sm">{exp.period}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-[#9ECAD6]">
-                      <MapPin size={16} />
-                      <span className="text-sm">{exp.location}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-[#748DAE] mb-6 text-lg">{exp.description}</p>
-
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-[#748DAE] mb-3">주요 성과</h4>
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start text-[#748DAE]">
-                        <CheckCircle size={18} className="text-[#9ECAD6] mr-2 flex-shrink-0 mt-1" />
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-[#748DAE] mb-3">사용 기술</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-[#9ECAD6]/20 text-[#748DAE] rounded-full text-sm font-medium">
-                        {tech}
-                      </span>
-                    ))}
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

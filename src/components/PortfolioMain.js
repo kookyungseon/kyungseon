@@ -23,6 +23,27 @@ const PortfolioMain = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
+      {/* 고정 네비게이션 */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex justify-between items-center py-4">
+            {/* 로고 */}
+            <div className="text-2xl font-bold text-[#748DAE]">
+              구경선
+            </div>
+            
+            {/* 네비게이션 메뉴 */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#about" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">About</a>
+              <a href="#projects" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Projects</a>
+              <a href="#skills" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Skills</a>
+              <a href="#certifications" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Awards</a>
+              <a href="#contact" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
       <Hero />
       <main className="relative">
         <div className="relative">

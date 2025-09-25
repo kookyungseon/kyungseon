@@ -22,7 +22,7 @@ const Hero = () => {
   }, [showContent, words.length]);
 
   return (
-    <header className="relative w-full min-h-screen bg-gradient-to-br from-white via-gray-50 to-white flex items-center justify-center py-20 overflow-hidden">
+    <header className="relative w-full min-h-screen bg-gradient-to-br from-white via-gray-50 to-white flex items-center justify-center pt-24 pb-20 overflow-hidden">
       {/* 배경 장식 요소 */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#9ECAD6]/10 rounded-full blur-xl"></div>
@@ -33,17 +33,6 @@ const Hero = () => {
       {/* 메인 콘텐츠 */}
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
         <div className="text-center">
-          {/* 네비게이션 */}
-          <nav className="mb-16">
-            <div className="flex justify-center space-x-8">
-              <a href="#about" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">About</a>
-              <a href="#projects" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Projects</a>
-              <a href="#skills" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Skills</a>
-              <a href="#awards" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Awards</a>
-              <a href="#contact" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Contact</a>
-            </div>
-          </nav>
-
           {/* 메인 타이틀 */}
           <h1 className="text-5xl md:text-6xl font-bold text-[#748DAE] mb-4">
             안녕하세요, 구경선입니다

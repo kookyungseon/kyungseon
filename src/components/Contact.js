@@ -33,42 +33,37 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* 왼쪽: 연락처 정보 */}
-          <div className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-[#9ECAD6] rounded-full flex items-center justify-center">
+        {/* 중앙 정렬된 단일 컬럼 레이아웃 */}
+        <div className="max-w-4xl mx-auto">
+          {/* 연락처 정보 - 상단에 가로 배치 */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="text-white" size={24} />
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-[#748DAE]">Email</h3>
-                <p className="text-[#748DAE]">koo0685@naver.com</p>
-              </div>
+              <h3 className="text-lg font-semibold text-[#748DAE] mb-2">Email</h3>
+              <p className="text-[#748DAE]">koo0685@naver.com</p>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-[#9ECAD6] rounded-full flex items-center justify-center">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Github className="text-white" size={24} />
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-[#748DAE]">GitHub</h3>
-                <p className="text-[#748DAE]">github.com/kookyungseon</p>
-              </div>
+              <h3 className="text-lg font-semibold text-[#748DAE] mb-2">GitHub</h3>
+              <p className="text-[#748DAE]">github.com/kookyungseon</p>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-[#9ECAD6] rounded-full flex items-center justify-center">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#9ECAD6] to-[#748DAE] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Linkedin className="text-white" size={24} />
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-[#748DAE]">LinkedIn</h3>
-                <p className="text-[#748DAE]">linkedin.com/in/kyungseon</p>
-              </div>
+              <h3 className="text-lg font-semibold text-[#748DAE] mb-2">LinkedIn</h3>
+              <p className="text-[#748DAE]">linkedin.com/in/kyungseon</p>
             </div>
           </div>
 
-          {/* 오른쪽: 연락 폼 */}
-          <div className="bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB] rounded-2xl p-8">
+          {/* 연락 폼 - 중앙에 배치 */}
+          <div className="bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB] rounded-3xl p-8 shadow-xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-[#748DAE] mb-2">
