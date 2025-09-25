@@ -6,7 +6,7 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <div
-      className={`group relative bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden ${
+      className={`group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-lg hover:shadow-white/10 transition-all duration-500 overflow-hidden ${
         isHovered ? 'scale-[1.02] -translate-y-2' : 'scale-100'
       }`}
       onMouseEnter={() => setIsHovered(true)}
@@ -18,17 +18,17 @@ const ProjectCard = ({ project, index }) => {
         {/* 헤더 */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center space-x-4">
-            <div className="p-4 rounded-2xl shadow-lg transition-all duration-300 bg-gray-100">
+            <div className="p-4 rounded-2xl shadow-lg transition-all duration-300 bg-white/10">
               <span className="text-4xl">{project.emoji}</span>
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">{project.title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-2 leading-tight">{project.title}</h3>
               <div className="flex items-center space-x-2 flex-wrap">
-                <span className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700">
+                <span className="px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20">
                   {project.category}
                 </span>
                 {project.award && (
-                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">
+                  <span className="px-3 py-1 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
                     🏆 {project.award}
                   </span>
                 )}
@@ -75,7 +75,7 @@ const ProjectCard = ({ project, index }) => {
             <Wrench className="text-gray-500" size={16} />
             <span className="text-sm text-gray-600 font-medium">{project.techCount}개 기술</span>
           </div>
-        </div>
+      </div>
 
         {/* 기술 스택 */}
         <div className="mb-6">
@@ -90,18 +90,18 @@ const ProjectCard = ({ project, index }) => {
                 className="px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 hover:from-gray-200 hover:to-gray-300 hover:scale-105 cursor-default"
                 style={{ animationDelay: `${techIndex * 0.1}s` }}
               >
-                {tech}
-              </span>
-            ))}
-          </div>
+            {tech}
+          </span>
+        ))}
+      </div>
         </div>
 
         {/* 링크 */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-          <a
+      <a
             href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
+        target="_blank"
+        rel="noopener noreferrer"
             className="inline-flex items-center text-gray-700 hover:text-gray-900 transition-colors font-medium group"
           >
             <span>Repository 보기</span>
@@ -216,22 +216,22 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="projects" className="py-24 px-6 bg-black relative overflow-hidden">
       {/* 배경 패턴 */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23f3f4f6%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* 헤더 */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center justify-center mb-6">
-            <div className="p-4 bg-gray-100 rounded-2xl mr-4">
+            <div className="p-4 bg-white/10 rounded-2xl mr-4">
               <span className="text-4xl">🚀</span>
             </div>
-            <h2 className="text-6xl font-bold text-gray-900">Featured Projects</h2>
+            <h2 className="text-6xl font-bold text-white">Featured Projects</h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 최신 AI 플랫폼을 소개합니다
           </p>
         </div>

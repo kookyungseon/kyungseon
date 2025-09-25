@@ -48,31 +48,31 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-24 px-6 bg-gray-50">
+    <section id="education" className="py-24 px-6 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
-            <BookOpen className="text-gray-600 mr-4" size={40} />
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900">
+            <BookOpen className="text-white mr-4" size={40} />
+            <h2 className="text-5xl md:text-6xl font-bold text-white">
               🎓 Education
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
             지구환경과학과 소프트웨어학과 복수전공 및 클라우드 전문 교육 과정
           </p>
         </div>
 
         <div className="space-y-12">
           {educationData.map((edu, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+            <div key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-white/10 transition-all duration-300">
               <div className="flex items-center mb-8">
-                <div className="p-4 bg-gray-100 rounded-xl mr-6">
-                  <GraduationCap className="text-gray-600" size={32} />
+                <div className="p-4 bg-white/10 rounded-xl mr-6">
+                  <GraduationCap className="text-white" size={32} />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900">{edu.school}</h3>
+                  <h3 className="text-3xl font-bold text-white">{edu.school}</h3>
                   <div className="flex items-center space-x-2 mt-2">
-                    <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium border border-gray-200">
+                    <span className="px-3 py-1 bg-white/10 text-white rounded-full text-sm font-medium border border-white/20">
                       {edu.logo}
                     </span>
                   </div>
@@ -81,17 +81,17 @@ const Education = () => {
 
               <div className="grid md:grid-cols-2 gap-8">
                 {edu.departments.map((dept, deptIndex) => (
-                  <div key={deptIndex} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                  <div key={deptIndex} className="bg-white/5 rounded-xl p-6 border border-white/10">
                     <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-xl font-bold text-gray-900">{dept.name}</h4>
+                      <h4 className="text-xl font-bold text-white">{dept.name}</h4>
                       <div className="flex items-center space-x-2">
-                        <Calendar className="text-gray-500" size={16} />
-                        <span className="text-gray-500 text-sm">{dept.period}</span>
+                        <Calendar className="text-white/60" size={16} />
+                        <span className="text-white/60 text-sm">{dept.period}</span>
                       </div>
                     </div>
                     
                     <div className="mb-4">
-                      <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">
                         {dept.status}
                       </span>
                     </div>
@@ -100,9 +100,9 @@ const Education = () => {
                       {dept.details.map((detail, detailIndex) => (
                         <li 
                           key={detailIndex} 
-                          className="text-gray-600 flex items-start gap-2 text-sm"
+                          className="text-white/80 flex items-start gap-2 text-sm"
                         >
-                          <span className="text-gray-400 mt-1">•</span>
+                          <span className="text-white/60 mt-1">•</span>
                           {detail}
                         </li>
                       ))}
