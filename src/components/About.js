@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Award, Briefcase, BookOpen } from 'lucide-react';
+import { Award, Briefcase, BookOpen } from 'lucide-react';
 
 const About = () => {
   return (

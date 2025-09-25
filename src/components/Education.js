@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, GraduationCap, Calendar } from 'lucide-react';
+import { GraduationCap, Calendar } from 'lucide-react';
 
 const Education = () => {
   const educationData = [

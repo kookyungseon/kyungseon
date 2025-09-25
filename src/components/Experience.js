@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Briefcase, Calendar, CheckCircle, Code2, Cloud, Building, MapPin } from "lucide-react";
+import { Calendar, CheckCircle, Code2, Cloud, Building, MapPin } from "lucide-react";
 
 const Experience = () => {
   const [visibleCards, setVisibleCards] = useState({});

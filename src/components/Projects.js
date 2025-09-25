@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Github, ExternalLink, ArrowRight, Calendar, User, Wrench } from "lucide-react";
+import { Github, ArrowRight, Calendar, User, Wrench } from "lucide-react";
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -60,17 +60,6 @@ const ProjectCard = ({ project, index }) => {
             >
               <Github size={18} className="text-[#2D3748]" />
             </a>
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-[#38A169]/20 hover:bg-[#38A169]/30 rounded-lg transition-all duration-300 hover:scale-110"
-                title="Live Demo"
-              >
-                <ExternalLink size={18} className="text-[#2D3748]" />
-              </a>
-            )}
           </div>
         </div>
 
@@ -152,7 +141,6 @@ const Projects = () => {
       technologies: ["Django", "OpenAI", "YOLOv8", "BLIP", "Python", "PostgreSQL", "Redis", "Celery"],
       techCount: 8,
       github: "https://github.com/CBNU-SW-1-11",
-      demo: "https://multimodal-qa-demo.vercel.app",
       emoji: "🧠",
       features: ["Featured", "AI/ML", "Multimodal"]
     },

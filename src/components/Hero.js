@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Github, Mail, Code, Cloud, Database, Star } from "lucide-react";
 
 const Hero = () => {
   const [showContent, setShowContent] = useState(false);
