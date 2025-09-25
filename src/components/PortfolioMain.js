@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import Education from './Education';
 import Certifications from './Certifications';
 import Projects from './Projects';
 import Experience from './Experience';
 import Navigation from './Navigation';
 import Hero from './Hero';
+import About from './About';
+import Skills from './Skills';
+import Contact from './Contact';
 
 const PortfolioMain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,23 +23,35 @@ const PortfolioMain = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
-      <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
       <Hero />
       <main className="relative">
         <div className="relative">
+          <About />
           <Education />
           <Certifications />
           <Projects />
           <Experience />
+          <Skills />
+          <Contact />
         </div>
       </main>
-      <footer className="bg-gray-50 py-8 text-center text-gray-600">
+      <footer className="bg-gradient-to-r from-[#FFEAEA] to-[#F5CBCB] py-8 text-center">
         <div className="container mx-auto px-4">
-          <p className="text-sm">© 2024 구경선. All rights reserved.</p>
-          <div className="mt-4 text-xs text-gray-400">
-            <span>Made with </span>
+          <div className="flex justify-center items-center space-x-8 mb-4">
+            <a href="mailto:koo0685@naver.com" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors">
+              <Mail size={24} />
+            </a>
+            <a href="https://github.com/kookyungseon" target="_blank" rel="noopener noreferrer" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors">
+              <Github size={24} />
+            </a>
+            <a href="#" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors">
+              <Linkedin size={24} />
+            </a>
+          </div>
+          <p className="text-[#748DAE] text-sm">© 2024 구경선. All rights reserved.</p>
+          <div className="mt-2 text-xs text-[#748DAE]">
+            <span>Built with React & </span>
             <span className="mx-1">♥</span>
-            <span>by kyungseon</span>
           </div>
         </div>
       </footer>

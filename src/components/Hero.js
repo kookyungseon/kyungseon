@@ -22,67 +22,81 @@ const Hero = () => {
   }, [showContent, words.length]);
 
   return (
-    <header className="relative w-full min-h-screen bg-gray-50 flex items-center justify-center py-20">
+    <header className="relative w-full min-h-screen bg-gradient-to-br from-[#FFEAEA] to-[#F5CBCB] flex items-center justify-center py-20">
       {/* 메인 콘텐츠 */}
-      <div className="max-w-4xl mx-auto px-6 w-full">
-        {/* 메인 카드 */}
-        <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-8 text-center">
-          {/* 프로필 이미지 */}
-          <div className="mb-6 flex justify-center">
-            <div className="w-24 h-24 bg-[#96A78D] rounded-full flex items-center justify-center">
-              <Code className="text-white" size={32} />
+      <div className="max-w-6xl mx-auto px-6 w-full">
+        <div className="text-center">
+          {/* 네비게이션 */}
+          <nav className="mb-16">
+            <div className="flex justify-center space-x-8">
+              <a href="#about" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">About</a>
+              <a href="#projects" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Projects</a>
+              <a href="#skills" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Skills</a>
+              <a href="#awards" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Awards</a>
+              <a href="#contact" className="text-[#748DAE] hover:text-[#9ECAD6] transition-colors font-medium">Contact</a>
             </div>
-          </div>
+          </nav>
 
           {/* 메인 타이틀 */}
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            구경선
+          <h1 className="text-5xl md:text-6xl font-bold text-[#748DAE] mb-4">
+            안녕하세요, 구경선입니다
           </h1>
           
           {/* 서브타이틀 */}
-          <div className="text-lg text-[#96A78D] font-medium mb-4">
+          <div className="text-2xl text-[#9ECAD6] font-medium mb-6">
             {words[currentWord]}
           </div>
 
           {/* 설명 */}
-          <p className="text-gray-600 text-base mb-6 max-w-xl mx-auto">
-            충북대학교 지구환경과학 & 소프트웨어 복수전공
+          <p className="text-[#748DAE] text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
+            데이터 분석과 인공지능 기술을 통해 문제를 해결하고, 의미 있는 인사이트를 도출하는 것을 목표로 합니다. 
+            다양한 프로젝트 경험을 바탕으로 실무에 적용 가능한 AI 솔루션을 개발하고 있습니다.
           </p>
 
-          {/* 스킬 태그 */}
-          <div className="flex justify-center items-center space-x-3 mb-6">
-            <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-              Cloud
-            </span>
-            <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-              Data
-            </span>
-            <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-              AI
-            </span>
+          {/* 스킬 아이콘들 */}
+          <div className="flex justify-center items-center space-x-8 mb-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
+                <span className="text-2xl">🤖</span>
+              </div>
+              <span className="text-sm text-[#748DAE] font-medium">AI/ML</span>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
+                <span className="text-2xl">📊</span>
+              </div>
+              <span className="text-sm text-[#748DAE] font-medium">Data Analysis</span>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
+                <span className="text-2xl">💻</span>
+              </div>
+              <span className="text-sm text-[#748DAE] font-medium">Development</span>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-[#9ECAD6] rounded-full flex items-center justify-center mb-2">
+                <span className="text-2xl">🔬</span>
+              </div>
+              <span className="text-sm text-[#748DAE] font-medium">Research</span>
+            </div>
           </div>
 
           {/* CTA 버튼들 */}
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="mailto:koo0685@naver.com"
-              className="inline-flex items-center justify-center px-6 py-2 bg-[#96A78D] text-white rounded-lg hover:bg-[#96A78D]/90 transition-colors text-sm font-medium"
+              href="#projects"
+              className="inline-flex items-center justify-center px-8 py-3 bg-[#748DAE] text-white rounded-lg hover:bg-[#9ECAD6] transition-colors font-medium"
             >
-              <Mail size={16} className="mr-2" />
-              이메일 보내기
+              프로젝트 보기
             </a>
             <a
-              href="https://github.com/kookyungseon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+              href="#contact"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#748DAE] text-[#748DAE] rounded-lg hover:bg-[#748DAE] hover:text-white transition-colors font-medium"
             >
-              <Github size={16} className="mr-2" />
-              깃허브
+              연락하기
             </a>
           </div>
         </div>
-
       </div>
     </header>
   );
