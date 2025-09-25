@@ -148,68 +148,102 @@ const Certifications = () => {
           </div>
         </div>
 
-        {/* 수상내역 섹션 */}
+        {/* 수상내역 섹션 - 타임라인 스타일 */}
         <div>
           <h3 className="text-2xl font-semibold text-[#748DAE] mb-8 flex items-center">
             <Trophy className="text-[#9ECAD6] mr-3" size={24} /> 수상내역
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {externalAwards.map((award, index) => (
-              <div
-                key={`ext-${index}`}
-                ref={(el) => (cardRefs.current[certifications.length + index] = el)}
-                data-index={certifications.length + index}
-                className={`transform transition-all duration-700 ease-out ${
-                  visibleCards[certifications.length + index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${(certifications.length + index) * 100}ms` }}
-              >
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-start">
-                    <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
-                      <award.icon className="text-[#96A78D]" size={24} />
+          
+          {/* 대외 수상 */}
+          <div className="mb-12">
+            <h4 className="text-lg font-semibold text-[#748DAE] mb-6 flex items-center">
+              <span className="w-3 h-3 bg-[#9ECAD6] rounded-full mr-3"></span>
+              대외 수상
+            </h4>
+            <div className="relative">
+              {/* 왼쪽 라인 */}
+              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#9ECAD6] to-[#748DAE] rounded-full"></div>
+              
+              <div className="space-y-8">
+                {externalAwards.map((award, index) => (
+                  <div
+                    key={`ext-${index}`}
+                    ref={(el) => (cardRefs.current[certifications.length + index] = el)}
+                    data-index={certifications.length + index}
+                    className={`relative flex items-start transform transition-all duration-700 ease-out ${
+                      visibleCards[certifications.length + index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: `${(certifications.length + index) * 100}ms` }}
+                  >
+                    {/* 왼쪽 노드 */}
+                    <div className="relative z-10 flex-shrink-0 mr-8">
+                      <div className="w-12 h-12 bg-[#9ECAD6] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                        <award.icon className="text-white" size={20} />
+                      </div>
                     </div>
+                    
+                    {/* 오른쪽 콘텐츠 */}
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{award.title}</h4>
-                      <p className="text-[#96A78D] mb-2 font-medium">{award.competition}</p>
-                      <p className="text-gray-600 text-sm mb-2">{award.organization}</p>
-                      <div className="flex items-center text-gray-500 text-sm">
-                        <Calendar size={14} className="mr-1" />
-                        {award.date}
+                      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                        <h4 className="text-lg font-semibold text-[#748DAE] mb-2">{award.title}</h4>
+                        <p className="text-[#9ECAD6] mb-2 font-medium">{award.competition}</p>
+                        <p className="text-[#748DAE] text-sm mb-2">{award.organization}</p>
+                        <div className="flex items-center text-[#9ECAD6] text-sm">
+                          <Calendar size={14} className="mr-1" />
+                          {award.date}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-            {internalAwards.map((award, index) => (
-              <div
-                key={`int-${index}`}
-                ref={(el) => (cardRefs.current[certifications.length + externalAwards.length + index] = el)}
-                data-index={certifications.length + externalAwards.length + index}
-                className={`transform transition-all duration-700 ease-out ${
-                  visibleCards[certifications.length + externalAwards.length + index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${(certifications.length + externalAwards.length + index) * 100}ms` }}
-              >
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-start">
-                    <div className="p-3 bg-[#96A78D]/10 rounded-lg mr-4">
-                      <award.icon className="text-[#96A78D]" size={24} />
+            </div>
+          </div>
+
+          {/* 교내 수상 */}
+          <div>
+            <h4 className="text-lg font-semibold text-[#748DAE] mb-6 flex items-center">
+              <span className="w-3 h-3 bg-[#748DAE] rounded-full mr-3"></span>
+              교내 수상
+            </h4>
+            <div className="relative">
+              {/* 왼쪽 라인 */}
+              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#748DAE] to-[#9ECAD6] rounded-full"></div>
+              
+              <div className="space-y-8">
+                {internalAwards.map((award, index) => (
+                  <div
+                    key={`int-${index}`}
+                    ref={(el) => (cardRefs.current[certifications.length + externalAwards.length + index] = el)}
+                    data-index={certifications.length + externalAwards.length + index}
+                    className={`relative flex items-start transform transition-all duration-700 ease-out ${
+                      visibleCards[certifications.length + externalAwards.length + index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: `${(certifications.length + externalAwards.length + index) * 100}ms` }}
+                  >
+                    {/* 왼쪽 노드 */}
+                    <div className="relative z-10 flex-shrink-0 mr-8">
+                      <div className="w-12 h-12 bg-[#748DAE] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                        <award.icon className="text-white" size={20} />
+                      </div>
                     </div>
+                    
+                    {/* 오른쪽 콘텐츠 */}
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{award.title}</h4>
-                      <p className="text-[#96A78D] mb-2 font-medium">{award.competition}</p>
-                      <p className="text-gray-600 text-sm mb-2">{award.organization}</p>
-                      <div className="flex items-center text-gray-500 text-sm">
-                        <Calendar size={14} className="mr-1" />
-                        {award.date}
+                      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                        <h4 className="text-lg font-semibold text-[#748DAE] mb-2">{award.title}</h4>
+                        <p className="text-[#9ECAD6] mb-2 font-medium">{award.competition}</p>
+                        <p className="text-[#748DAE] text-sm mb-2">{award.organization}</p>
+                        <div className="flex items-center text-[#9ECAD6] text-sm">
+                          <Calendar size={14} className="mr-1" />
+                          {award.date}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
