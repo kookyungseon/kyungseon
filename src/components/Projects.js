@@ -225,6 +225,18 @@ const Projects = () => {
       github: "https://github.com/kookyungseon/Smart-Window-Project-IoT-Ventilation-System",
       emoji: "🪟",
       features: ["Featured", "Full Stack"]
+    },
+    {
+      title: "Mafia Game (C Language)",
+      category: "Game Development Project",
+      description: "C언어로 구현한 콘솔 기반 마피아 게임. 멀티플레이어 게임 로직과 사용자 인터페이스를 구현하고, 게임 상태 관리와 플레이어 간 상호작용을 처리하는 시스템을 개발. 서버 프로그래밍 기법을 활용하여 안정적인 게임 서버를 구축.",
+      period: "3학년 1학기",
+      role: "Server Programming & Game Logic Developer",
+      technologies: ["C", "Server Programming", "Game Logic", "Multiplayer", "Console UI"],
+      techCount: 5,
+      github: "https://github.com/kookyungseon/server_program",
+      emoji: "🎮",
+      features: ["Featured", "Game Development"]
     }
   ];
 
