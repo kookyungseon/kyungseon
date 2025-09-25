@@ -78,10 +78,15 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="py-24 px-6 bg-white">
+    <section id="experience" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-16 text-black">💼 Work Experience</h2>
-        <div className="space-y-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">💼 Work Experience</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            다양한 프로젝트와 교육 과정을 통해 쌓은 실무 경험과 전문성
+          </p>
+        </div>
+        <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div
               key={index}
@@ -92,37 +97,37 @@ const Experience = () => {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="bg-black border border-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-4">
-                    <div className="p-4 bg-white/10 rounded-xl">
-                      <exp.icon className="text-white" size={32} />
+                    <div className="p-3 bg-[#96A78D]/10 rounded-lg">
+                      <exp.icon className="text-[#96A78D]" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white">{exp.company}</h3>
-                      <p className="text-lg text-white/80">{exp.position}</p>
+                      <h3 className="text-2xl font-bold text-gray-900">{exp.company}</h3>
+                      <p className="text-lg text-[#96A78D] font-medium">{exp.position}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="flex items-center space-x-2 text-white/60 mb-2">
+                    <div className="flex items-center space-x-2 text-gray-500 mb-2">
                       <Calendar size={16} />
                       <span className="text-sm">{exp.period}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-white/60">
+                    <div className="flex items-center space-x-2 text-gray-500">
                       <MapPin size={16} />
                       <span className="text-sm">{exp.location}</span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-white/80 mb-6 text-lg">{exp.description}</p>
+                <p className="text-gray-600 mb-6 text-lg">{exp.description}</p>
 
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-3">주요 성과</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">주요 성과</h4>
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start text-white/80">
-                        <CheckCircle size={18} className="text-white/60 mr-2 flex-shrink-0 mt-1" />
+                      <li key={i} className="flex items-start text-gray-600">
+                        <CheckCircle size={18} className="text-[#96A78D] mr-2 flex-shrink-0 mt-1" />
                         <span>{achievement}</span>
                       </li>
                     ))}
@@ -130,10 +135,10 @@ const Experience = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">사용 기술</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">사용 기술</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-white/10 text-white rounded-full text-sm font-medium border border-white/20">
+                      <span key={i} className="px-3 py-1 bg-[#96A78D]/10 text-[#96A78D] rounded-full text-sm font-medium">
                         {tech}
                       </span>
                     ))}

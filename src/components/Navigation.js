@@ -24,7 +24,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, scrollToSection }) => {
         {/* Navigation Bar */}
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <span className="text-2xl font-bold text-gray-900">
+          <span className="text-2xl font-bold text-[#96A78D]">
             kyungseon
           </span>
 
@@ -32,10 +32,10 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, scrollToSection }) => {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('education')}
-              className="text-gray-600 hover:text-gray-900 transition-colors font-medium relative group"
+              className="text-gray-600 hover:text-[#96A78D] transition-colors font-medium relative group"
             >
               학력
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#96A78D] transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
               onClick={() => scrollToSection('certifications')}
