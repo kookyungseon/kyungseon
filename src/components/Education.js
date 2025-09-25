@@ -51,8 +51,8 @@ const Education = () => {
     <section id="education" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#748DAE] mb-4">Education</h2>
-          <p className="text-lg text-[#748DAE] max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-[#2D3748] mb-4">Education</h2>
+          <p className="text-lg text-[#4A5568] max-w-2xl mx-auto font-medium">
             지구환경과학과 소프트웨어학과 복수전공 및 클라우드 전문 교육 과정
           </p>
         </div>
@@ -60,7 +60,7 @@ const Education = () => {
         {/* 타임라인 스타일 */}
         <div className="relative">
           {/* 중앙 라인 */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#9ECAD6] to-[#748DAE] rounded-full"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#3182CE] to-[#2B6CB0] rounded-full"></div>
           
           <div className="space-y-12">
             {educationData.map((edu, index) => (
@@ -68,29 +68,29 @@ const Education = () => {
                 {/* 왼쪽/오른쪽 콘텐츠 */}
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                   <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6">
-                    <div className="flex items-center mb-4">
-                      <div className="p-3 bg-[#9ECAD6] rounded-lg mr-4">
-                        <GraduationCap className="text-white" size={24} />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-[#748DAE]">{edu.school}</h3>
-                        <span className="text-sm text-[#9ECAD6] font-medium">{edu.logo}</span>
-                      </div>
-                    </div>
+                        <div className="flex items-center mb-4">
+                          <div className="p-3 bg-gradient-to-br from-[#3182CE] to-[#2B6CB0] rounded-lg mr-4 shadow-lg">
+                            <GraduationCap className="text-white" size={24} />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-[#2D3748]">{edu.school}</h3>
+                            <span className="text-sm text-[#4A5568] font-semibold">{edu.logo}</span>
+                          </div>
+                        </div>
 
                     <div className="space-y-4">
                       {edu.departments.map((dept, deptIndex) => (
-                        <div key={deptIndex} className="border-l-4 border-[#9ECAD6] pl-4">
+                        <div key={deptIndex} className="border-l-4 border-[#3182CE] pl-4">
                           <div className="flex items-center justify-between mb-2">
-                            <h4 className="text-lg font-semibold text-[#748DAE]">{dept.name}</h4>
+                            <h4 className="text-lg font-semibold text-[#2D3748]">{dept.name}</h4>
                             <div className="flex items-center space-x-2">
-                              <Calendar className="text-[#9ECAD6]" size={14} />
-                              <span className="text-[#9ECAD6] text-sm">{dept.period}</span>
+                              <Calendar className="text-[#3182CE]" size={14} />
+                              <span className="text-[#3182CE] text-sm font-medium">{dept.period}</span>
                             </div>
                           </div>
                           
                           <div className="mb-2">
-                            <span className="px-3 py-1 bg-[#9ECAD6]/20 text-[#748DAE] rounded-full text-sm font-medium">
+                            <span className="px-3 py-1 bg-[#3182CE]/20 text-[#2D3748] rounded-full text-sm font-semibold">
                               {dept.status}
                             </span>
                           </div>
@@ -99,9 +99,9 @@ const Education = () => {
                             {dept.details.map((detail, detailIndex) => (
                               <li 
                                 key={detailIndex} 
-                                className="text-[#748DAE] flex items-start gap-2 text-sm"
+                                className="text-[#4A5568] flex items-start gap-2 text-sm"
                               >
-                                <span className="text-[#9ECAD6] mt-1">•</span>
+                                <span className="text-[#3182CE] mt-1 font-bold">•</span>
                                 {detail}
                               </li>
                             ))}
@@ -112,10 +112,10 @@ const Education = () => {
                   </div>
                 </div>
 
-                {/* 중앙 노드 */}
-                <div className="relative z-10 flex-shrink-0">
-                  <div className="w-6 h-6 bg-[#9ECAD6] rounded-full border-4 border-white shadow-lg"></div>
-                </div>
+                      {/* 중앙 노드 */}
+                      <div className="relative z-10 flex-shrink-0">
+                        <div className="w-6 h-6 bg-[#3182CE] rounded-full border-4 border-white shadow-lg"></div>
+                      </div>
 
                 {/* 빈 공간 */}
                 <div className="w-1/2"></div>

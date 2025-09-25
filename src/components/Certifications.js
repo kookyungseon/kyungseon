@@ -99,16 +99,16 @@ const Certifications = () => {
     <section id="certifications" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#748DAE] mb-4">🏅 Certifications & 🎖️ Achievements</h2>
-          <p className="text-lg text-[#748DAE] max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-[#2D3748] mb-4">🏅 Certifications & 🎖️ Achievements</h2>
+          <p className="text-lg text-[#4A5568] max-w-2xl mx-auto font-medium">
             데이터 전문성과 기술 역량을 인정받은 자격증 및 수상 경력
           </p>
         </div>
 
         {/* 자격증 섹션 */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-[#748DAE] mb-8 flex items-center">
-            <CheckCircle className="text-[#9ECAD6] mr-3" size={24} /> 자격증
+          <h3 className="text-2xl font-semibold text-[#2D3748] mb-8 flex items-center">
+            <CheckCircle className="text-[#3182CE] mr-3" size={24} /> 자격증
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
@@ -122,26 +122,26 @@ const Certifications = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 bg-[#9ECAD6]/20 rounded-lg mr-4">
-                      <cert.icon className="text-[#748DAE]" size={24} />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-[#748DAE]">{cert.name}</h4>
-                      <p className="text-sm text-[#9ECAD6]">{cert.code}</p>
-                    </div>
-                  </div>
-                  <p className="text-[#748DAE] text-sm mb-3">{cert.description}</p>
-                  <div className="flex items-center text-[#9ECAD6] text-xs">
-                    <Calendar size={14} className="mr-1" />
-                    {cert.date}
-                    {cert.grade && (
-                      <>
-                        <span className="mx-2">•</span>
-                        <span className="font-medium text-[#9ECAD6]">{cert.grade}</span>
-                      </>
-                    )}
-                  </div>
+                        <div className="flex items-center mb-4">
+                          <div className="p-3 bg-[#3182CE]/20 rounded-lg mr-4">
+                            <cert.icon className="text-[#2D3748]" size={24} />
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-semibold text-[#2D3748]">{cert.name}</h4>
+                            <p className="text-sm text-[#4A5568] font-medium">{cert.code}</p>
+                          </div>
+                        </div>
+                        <p className="text-[#4A5568] text-sm mb-3">{cert.description}</p>
+                        <div className="flex items-center text-[#3182CE] text-xs font-medium">
+                          <Calendar size={14} className="mr-1" />
+                          {cert.date}
+                          {cert.grade && (
+                            <>
+                              <span className="mx-2">•</span>
+                              <span className="font-semibold text-[#3182CE]">{cert.grade}</span>
+                            </>
+                          )}
+                        </div>
                 </div>
               </div>
             ))}
@@ -150,19 +150,19 @@ const Certifications = () => {
 
         {/* 수상내역 섹션 - 타임라인 스타일 */}
         <div>
-          <h3 className="text-2xl font-semibold text-[#748DAE] mb-8 flex items-center">
-            <Trophy className="text-[#9ECAD6] mr-3" size={24} /> 수상내역
+          <h3 className="text-2xl font-semibold text-[#2D3748] mb-8 flex items-center">
+            <Trophy className="text-[#3182CE] mr-3" size={24} /> 수상내역
           </h3>
           
           {/* 대외 수상 */}
           <div className="mb-12">
-            <h4 className="text-lg font-semibold text-[#748DAE] mb-6 flex items-center">
-              <span className="w-3 h-3 bg-[#9ECAD6] rounded-full mr-3"></span>
+            <h4 className="text-lg font-semibold text-[#2D3748] mb-6 flex items-center">
+              <span className="w-3 h-3 bg-[#3182CE] rounded-full mr-3"></span>
               대외 수상
             </h4>
             <div className="relative">
               {/* 왼쪽 라인 */}
-              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#9ECAD6] to-[#748DAE] rounded-full"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#3182CE] to-[#2B6CB0] rounded-full"></div>
               
               <div className="space-y-8">
                 {externalAwards.map((award, index) => (
@@ -175,25 +175,25 @@ const Certifications = () => {
                     }`}
                     style={{ transitionDelay: `${(certifications.length + index) * 100}ms` }}
                   >
-                    {/* 왼쪽 노드 */}
-                    <div className="relative z-10 flex-shrink-0 mr-8">
-                      <div className="w-12 h-12 bg-[#9ECAD6] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
-                        <award.icon className="text-white" size={20} />
-                      </div>
-                    </div>
-                    
-                    {/* 오른쪽 콘텐츠 */}
-                    <div className="flex-1">
-                      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <h4 className="text-lg font-semibold text-[#748DAE] mb-2">{award.title}</h4>
-                        <p className="text-[#9ECAD6] mb-2 font-medium">{award.competition}</p>
-                        <p className="text-[#748DAE] text-sm mb-2">{award.organization}</p>
-                        <div className="flex items-center text-[#9ECAD6] text-sm">
-                          <Calendar size={14} className="mr-1" />
-                          {award.date}
-                        </div>
-                      </div>
-                    </div>
+                          {/* 왼쪽 노드 */}
+                          <div className="relative z-10 flex-shrink-0 mr-8">
+                            <div className="w-12 h-12 bg-[#3182CE] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                              <award.icon className="text-white" size={20} />
+                            </div>
+                          </div>
+                          
+                          {/* 오른쪽 콘텐츠 */}
+                          <div className="flex-1">
+                            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                              <h4 className="text-lg font-semibold text-[#2D3748] mb-2">{award.title}</h4>
+                              <p className="text-[#4A5568] mb-2 font-semibold">{award.competition}</p>
+                              <p className="text-[#4A5568] text-sm mb-2">{award.organization}</p>
+                              <div className="flex items-center text-[#3182CE] text-sm font-medium">
+                                <Calendar size={14} className="mr-1" />
+                                {award.date}
+                              </div>
+                            </div>
+                          </div>
                   </div>
                 ))}
               </div>
@@ -202,13 +202,13 @@ const Certifications = () => {
 
           {/* 교내 수상 */}
           <div>
-            <h4 className="text-lg font-semibold text-[#748DAE] mb-6 flex items-center">
-              <span className="w-3 h-3 bg-[#748DAE] rounded-full mr-3"></span>
+            <h4 className="text-lg font-semibold text-[#2D3748] mb-6 flex items-center">
+              <span className="w-3 h-3 bg-[#38A169] rounded-full mr-3"></span>
               교내 수상
             </h4>
             <div className="relative">
               {/* 왼쪽 라인 */}
-              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#748DAE] to-[#9ECAD6] rounded-full"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#38A169] to-[#2F855A] rounded-full"></div>
               
               <div className="space-y-8">
                 {internalAwards.map((award, index) => (
@@ -221,25 +221,25 @@ const Certifications = () => {
                     }`}
                     style={{ transitionDelay: `${(certifications.length + externalAwards.length + index) * 100}ms` }}
                   >
-                    {/* 왼쪽 노드 */}
-                    <div className="relative z-10 flex-shrink-0 mr-8">
-                      <div className="w-12 h-12 bg-[#748DAE] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
-                        <award.icon className="text-white" size={20} />
-                      </div>
-                    </div>
-                    
-                    {/* 오른쪽 콘텐츠 */}
-                    <div className="flex-1">
-                      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <h4 className="text-lg font-semibold text-[#748DAE] mb-2">{award.title}</h4>
-                        <p className="text-[#9ECAD6] mb-2 font-medium">{award.competition}</p>
-                        <p className="text-[#748DAE] text-sm mb-2">{award.organization}</p>
-                        <div className="flex items-center text-[#9ECAD6] text-sm">
-                          <Calendar size={14} className="mr-1" />
-                          {award.date}
-                        </div>
-                      </div>
-                    </div>
+                          {/* 왼쪽 노드 */}
+                          <div className="relative z-10 flex-shrink-0 mr-8">
+                            <div className="w-12 h-12 bg-[#38A169] rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                              <award.icon className="text-white" size={20} />
+                            </div>
+                          </div>
+                          
+                          {/* 오른쪽 콘텐츠 */}
+                          <div className="flex-1">
+                            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                              <h4 className="text-lg font-semibold text-[#2D3748] mb-2">{award.title}</h4>
+                              <p className="text-[#4A5568] mb-2 font-semibold">{award.competition}</p>
+                              <p className="text-[#4A5568] text-sm mb-2">{award.organization}</p>
+                              <div className="flex items-center text-[#38A169] text-sm font-medium">
+                                <Calendar size={14} className="mr-1" />
+                                {award.date}
+                              </div>
+                            </div>
+                          </div>
                   </div>
                 ))}
               </div>

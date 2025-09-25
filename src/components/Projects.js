@@ -73,7 +73,7 @@ const ProjectCard = ({ project, index }) => {
         </div>
 
         {/* 설명 */}
-        <p className="text-[#748DAE] mb-4 leading-relaxed text-sm">{project.description}</p>
+        <p className="text-[#4A5568] mb-4 leading-relaxed text-sm">{project.description}</p>
 
         {/* 메타 정보 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 p-3 bg-[#9ECAD6]/10 rounded-xl">
@@ -233,8 +233,8 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         {/* 헤더 */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#748DAE] mb-4">🚀 Featured Projects</h2>
-          <p className="text-lg text-[#748DAE] max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-[#2D3748] mb-4">🚀 Featured Projects</h2>
+          <p className="text-lg text-[#4A5568] max-w-2xl mx-auto font-medium">
             클라우드, AI, 데이터 분석을 활용한 다양한 프로젝트와 최신 AI 플랫폼을 소개합니다
           </p>
         </div>
